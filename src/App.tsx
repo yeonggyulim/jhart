@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Switch>
+          <Route path="/information/map" />
+          <Route path="/information/career" />
+          <Route path="/information" />
+        </Switch>
+        <Switch>
+          {/* TODO: change name to buddha-statue, antique, character */}
+          <Route path="/processing/probuddha" />
+          <Route path="/processing/probequest" />
+          <Route path="/processing/procha" />
+          <Route path="/processing" />
+        </Switch>
+        <Switch>
+          <Route path="/gallery/art-exhibition" />
+          <Route path="/gallery/diorama" />
+          <Route path="/gallery/antique-reproduction" />
+          <Route path="/gallery/cultural-assets" />
+          <Route path="/gallery/statue" />
+          <Route path="/gallery/sculpture" />
+          <Route path="/gallery/character" />
+          <Route path="/gallery/model" />
+          <Route path="/gallery" />
+        </Switch>
+        <Switch>
+          <Route path="/buddhism-art/buddha-statue" />
+          <Route path="/buddhism-art/buddhist-sculpture" />
+          <Route path="/buddhism-art/buddhist-architecture" />
+          <Route path="/buddhism-art/buddhist-goods" />
+          <Route path="/buddhism-art/3d-data" />
+          <Route path="/buddhism-art" />
+        </Switch>
+        <Route path="/contact" />
+        <Route path="/" />
+        {/* TODO: Error Page */}
+        <Route />
+      </Switch>
+    </>
   );
 }
 
