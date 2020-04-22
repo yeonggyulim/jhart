@@ -4,10 +4,10 @@ const Footer = () => {
     return (
         <footer>
             <p>
-                JeonHeung
+                전흥공예
             </p>
-            <p>
-                Total Art Company
+            <p style={{}}>
+                COPYRIGHT &copy; {new Date().getFullYear()} 田興工藝 ALL RIGHTS RESERVED
             </p>
         </footer>
     );

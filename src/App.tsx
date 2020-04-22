@@ -33,7 +33,7 @@ const App = () => {
                 <Route path="/buddhism-art/buddhist-goods" />
                 <Route path="/buddhism-art/3d-data" />
                 <Route path="/buddhism-art" />
-                <Route path="/contact" component={Contact} />
+                <Route path="/contact-us" component={Contact} />
                 <Route path="/" exact component={Main} />
                 {/* TODO: Error Page */}
                 <Route />
