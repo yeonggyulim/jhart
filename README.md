@@ -7,6 +7,6 @@
 * Frontend
     * React.js
     * Typescript
-    * React UI Library (Todo: Ant Design of React)
-    * React UI Framework (Todo: React Bootstrap)
+    * React UI Library (TBD: Ant Design of React)
+    * React UI Framework (TBD: React Bootstrap)
 * Backend (Todo: Node.js)
