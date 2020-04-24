@@ -1,7 +1,7 @@
 # 田興工藝 Total Art Company Website
 
 ## Table of contents
-* [Technical Stack](#Technical-Stack)
+* [Technical Stack](##Technical-Stack)
 
 ## Technical Stack
 * Frontend
