@@ -1,9 +1,9 @@
 # 田興工藝 Total Art Company Website
 
-# Table of contents
+## Table of contents
 * [Technical Stack](#Technical-Stack)
 
-# Technical Stack
+## Technical Stack
 * Frontend
     * React.js
     * Typescript
