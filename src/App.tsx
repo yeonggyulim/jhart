@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Main, Information, Career, Map, Contact } from "./pages";
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
     return (
