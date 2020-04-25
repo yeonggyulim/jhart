@@ -1,9 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Main, Information, Career, Map, Contact } from "./pages";
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
-import "./App.scss";
+import { Header, Footer } from './layouts'
 
 const App = () => {
     return (
