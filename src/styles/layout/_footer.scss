@@ -4,4 +4,14 @@ Footer {
     background-color: #241a18;
     color: white;
     text-align: center;
+    padding: 0.5rem 0;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .copyright {
+        margin: 0;
+    }
 }
