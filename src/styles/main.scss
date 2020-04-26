@@ -1,6 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
-@import './layout/layout';
+@import './abstracts/variables';
 
-@import './layout/header';
-@import './layout/footer';
+@import './layouts/layout';
+
+@import './layouts/header';
+@import './layouts/footer';
+
+@import './components/logo';
+@import './components/gnb';

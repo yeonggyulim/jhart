@@ -1,0 +1,32 @@
+.outer-layout.header {
+	background-color: $background-color-brown;
+	color: white;
+	border-bottom: 1px solid black;
+
+	.inner-layout.header {
+		display: flex;
+
+		a {
+			color: #ffffff;
+		}
+
+		a:-webkit-any-link {
+			text-decoration: none;
+		}
+
+		.header--left {
+			width: 25%;
+		}
+
+		.header--center {
+			width: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.header--right {
+			width: 25%;
+		}
+	}
+}
