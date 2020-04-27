@@ -12,7 +12,7 @@ const Header = () => {
 					</Link>
 				</div>
 				<div className="header--center">
-					<Gnb />
+					<Gnb active={3} />
 				</div>
 				<div className="header--right" />
 			</div>
@@ -20,4 +20,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default React.memo(Header);

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Main, Information, Career, Map, Contact } from './pages';
-import { Header, Footer } from './layouts';
+import { Header, Navigation, Footer } from './layouts';
 
 const App = () => {
   return (
     <div id="page">
       <Header />
+      <Navigation />
       <Switch>
         <Route path="/information/map" component={Map} />
         <Route path="/information/career" component={Career} />
