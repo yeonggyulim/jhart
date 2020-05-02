@@ -1,15 +1,20 @@
-import React from "react";
-import { NavDropdown, Dropdown, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Nav } from 'react-bootstrap';
+import React from 'react';
 
-const Navigation = () => {
+type NavigationProps = {
+	navigations: string[];
+};
+
+const Navigation = ({ navigations }: NavigationProps) => {
   return (
     <div className="outer-layout navigation">
-			<div className="inner-layout navigation">
-        navigation
-			</div>
-		</div>
+      <div className="inner-layout navigation">
+        <nav>
+          {navigations.map((navigation, i) => {
+            return <a key={i}>{navigation}</a>;
+          })}
+        </nav>
+      </div>
+    </div>
   );
 };
 

@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Logo, Gnb } from '../../components';
+import { Navigation } from '../../constants/navigation';
 
-const Header = () => {
+type HeaderProps = {
+	onChangeNavigation: (navigation: Navigation) => void;
+};
+
+const Header = ({ onChangeNavigation }: HeaderProps) => {
 	return (
 		<div className="outer-layout header">
 			<div className="inner-layout header">
 				<div className="header--left">
-					<Link to="/">
-						<Logo />
-					</Link>
+					<Logo onChangeNavigation={onChangeNavigation} />
 				</div>
 				<div className="header--center">
-					<Gnb active={3} />
+					<Gnb onChangeNavigation={onChangeNavigation} active={3} />
 				</div>
 				<div className="header--right" />
 			</div>

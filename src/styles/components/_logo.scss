@@ -1,8 +1,12 @@
 .logo {
-	color: $logo-color-green;
-    display: flex;
-    align-items: center;
-    margin: 0.5rem 0;
+	width: fit-content;
+
+	a {
+		color: $logo-color-green;
+		display: flex;
+		align-items: center;
+		margin: 0.5rem 0;
+	}
 
 	.logo--icon {
 		font-size: 3rem;
@@ -12,8 +16,8 @@
 
 	.logo--text {
 		.logo--text--title {
-            font-size: 1.5rem;
-            font-weight: bold;
+			font-size: 1.5rem;
+			font-weight: bold;
 		}
 		.logo--text--sub-title {
 			font-size: 1rem;
