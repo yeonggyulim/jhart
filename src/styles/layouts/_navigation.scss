@@ -1,6 +1,6 @@
 .navigation {
-	background-color: #eeeee9;
-    color: #325a5a;
+	background-color: $background-color-ivory;
+    color: $logo-color-blue-green;
     
     a {
         font-size: 1rem;
@@ -8,4 +8,15 @@
         margin: 0.5rem 1rem;
         cursor: pointer;
     }
+
+    a:hover {
+        color: $logo-color-blue;
+    }
+
+    a.active {
+        font-weight: bold;
+        color: $logo-color-green;
+    }
+
+
 }

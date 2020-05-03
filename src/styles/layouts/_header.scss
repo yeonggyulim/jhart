@@ -19,9 +19,18 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			
+
 			a {
 				color: #ffffff;
+			}
+
+			a:hover {
+				color: $logo-color-blue;
+			}
+
+			a.active {
+				color: $logo-color-green;
+				font-weight: bold;
 			}
 		}
 

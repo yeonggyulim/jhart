@@ -3,10 +3,11 @@ import { Logo, Gnb } from '../../components';
 import { Navigation } from '../../constants/navigation';
 
 type HeaderProps = {
+	activeGnb: Navigation;
 	onChangeNavigation: (navigation: Navigation) => void;
 };
 
-const Header = ({ onChangeNavigation }: HeaderProps) => {
+const Header = ({ activeGnb, onChangeNavigation }: HeaderProps) => {
 	return (
 		<div className="outer-layout header">
 			<div className="inner-layout header">
@@ -14,7 +15,7 @@ const Header = ({ onChangeNavigation }: HeaderProps) => {
 					<Logo onChangeNavigation={onChangeNavigation} />
 				</div>
 				<div className="header--center">
-					<Gnb onChangeNavigation={onChangeNavigation} />
+					<Gnb activeGnb={activeGnb} onChangeNavigation={onChangeNavigation} />
 				</div>
 				<div className="header--right" />
 			</div>

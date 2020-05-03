@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 type NavigationProps = {
@@ -9,6 +9,8 @@ type NavigationProps = {
 };
 
 const Navigation = ({ navigations }: NavigationProps) => {
+  const [activeNav, setActiveNav] = useState(0);
+
   const history = useHistory();
   return (
     <div className="outer-layout navigation">
@@ -16,7 +18,14 @@ const Navigation = ({ navigations }: NavigationProps) => {
         <nav>
           {navigations.map((navigation, i) => {
             return (
-              <a key={i} onClick={() => history.push(navigation.link)}>
+              <a
+                key={i}
+                className={activeNav === i ? 'active' : ''}
+                onClick={() => {
+                  history.push(navigation.link);
+                  setActiveNav(i);
+                }}
+              >
                 {navigation.title}
               </a>
             );

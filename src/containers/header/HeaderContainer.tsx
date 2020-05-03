@@ -1,5 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { RootState } from '../../modules';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeNavigation } from '../../modules/navigation';
 import { Header } from '../../layouts';
 import { Navigation } from '../../constants/navigation';
@@ -7,6 +8,9 @@ import { useHistory } from 'react-router-dom';
 
 const HeaderContainer = () => {
   const history = useHistory();
+  const activeGnb = useSelector(
+    (state: RootState) => state.navigation.navigation,
+  );
   const dispatch = useDispatch();
   const onChangeNavigation = (navigation: Navigation) => {
     dispatch(changeNavigation(navigation));
@@ -32,7 +36,9 @@ const HeaderContainer = () => {
     }
   };
 
-  return <Header onChangeNavigation={onChangeNavigation} />;
+  return (
+    <Header activeGnb={activeGnb} onChangeNavigation={onChangeNavigation} />
+  );
 };
 
 export default HeaderContainer;
