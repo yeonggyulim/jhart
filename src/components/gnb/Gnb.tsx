@@ -3,13 +3,12 @@ import { Nav } from 'react-bootstrap';
 import { Navigation } from '../../constants/navigation';
 
 type GnbProps = {
-	active: string | number;
 	onChangeNavigation: (navigation: Navigation) => void;
 };
 
-const Gnb = ({ active, onChangeNavigation }: GnbProps) => {
+const Gnb = ({ onChangeNavigation }: GnbProps) => {
   return (
-    <Nav className="justify-content-center" variant="pills" activeKey={active}>
+    <Nav className="justify-content-center">
       <Nav.Item>
         <Nav.Link
           eventKey={0}

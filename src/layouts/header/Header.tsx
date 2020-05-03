@@ -14,7 +14,7 @@ const Header = ({ onChangeNavigation }: HeaderProps) => {
 					<Logo onChangeNavigation={onChangeNavigation} />
 				</div>
 				<div className="header--center">
-					<Gnb onChangeNavigation={onChangeNavigation} active={3} />
+					<Gnb onChangeNavigation={onChangeNavigation} />
 				</div>
 				<div className="header--right" />
 			</div>
