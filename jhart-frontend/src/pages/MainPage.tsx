@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import main_banner_0 from '../../images/main_banner_0.jpeg';
+import main_banner_0 from '../images/main_banner_0.jpeg';
 import main_banner_1 from '../../images/main_banner_1.jpg';
 
-const Main = () => {
+const MainPage = () => {
   return (
     <div className="outer-layout main">
       <div className="inner-layout">
@@ -50,4 +50,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;

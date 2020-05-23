@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Modeling = () => {
+const ModelingPage = () => {
   return <div>Modeling</div>;
 };
 
-export default Modeling;
+export default ModelingPage;

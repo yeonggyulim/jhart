@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../modules';
-import { Navigation } from '../../layouts';
+import { Navigation } from '../../components';
 
 const NavigationContainer = () => {
   const navigations = [

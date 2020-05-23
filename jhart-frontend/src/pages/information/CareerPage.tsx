@@ -1,7 +1,7 @@
 import React from "react";
 
-const Career = () => {
+const CareerPage = () => {
   return <div>Career</div>;
 };
 
-export default Career;
+export default CareerPage;

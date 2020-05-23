@@ -1,7 +1,7 @@
 import React from 'react';
 import information from '../../images/information.gif';
 
-const Information = () => {
+const InformationPage = () => {
   return (
     <div className="outer-layout information">
       <div className="inner-layout">
@@ -14,4 +14,4 @@ const Information = () => {
   );
 };
 
-export default Information;
+export default InformationPage;

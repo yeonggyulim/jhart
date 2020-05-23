@@ -2,11 +2,11 @@
 
 @import './abstracts/variables';
 
-@import './layouts/layout';
+@import './layout';
 
-@import './layouts/header';
-@import './layouts/navigation';
-@import './layouts/footer';
+@import './components/header';
+@import './components/navigation';
+@import './components/footer';
 
 @import './components/logo';
 @import './components/gnb';

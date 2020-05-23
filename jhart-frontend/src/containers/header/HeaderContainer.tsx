@@ -2,7 +2,7 @@ import React from 'react';
 import { RootState } from '../../modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeNavigation } from '../../modules/navigation';
-import { Header } from '../../layouts';
+import { Header } from '../../components';
 import { Navigation } from '../../constants/navigation';
 import { useHistory } from 'react-router-dom';
 

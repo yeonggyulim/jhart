@@ -1,7 +1,7 @@
 import React from 'react';
 
-const BuddhismArt = () => {
+const BuddhismArtPage = () => {
   return <div>BuddhismArt</div>;
 };
 
-export default BuddhismArt;
+export default BuddhismArtPage;

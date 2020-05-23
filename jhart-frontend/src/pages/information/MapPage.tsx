@@ -1,8 +1,8 @@
 import React from 'react';
-import map from '../../../images/map.jpg';
+import map from '../../images/map.jpg';
 // import map2 from '/images/map.jpg';
 
-const Map = () => {
+const MapPage = () => {
   return (
     <div className="outer-layout map">
       <div className="inner-layout">
@@ -17,4 +17,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default MapPage;

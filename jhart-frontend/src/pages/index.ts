@@ -1,12 +1,12 @@
-export { default as Main } from './main/Main';
-export { default as Information } from './information/Information';
-export { default as Career } from './information/career/Career';
-export { default as Map } from './information/map/Map';
+export { default as MainPage } from './MainPage';
+export { default as InformationPage } from './information/InformationPage';
+export { default as CareerPage } from './information/CareerPage';
+export { default as MapPage } from './information/MapPage';
 
-export { default as Processing } from './processing/Processing';
+export { default as ProcessingPage } from './processing/ProcessingPage';
 
-export { default as Modeling } from './modeling/Modeling';
+export { default as ModelingPage } from './modeling/ModelingPage';
 
-export { default as BuddhismArt } from './buddhismArt/BuddhismArt';
+export { default as BuddhismArtPage } from './buddhismArt/BuddhismArtPage';
 
-export { default as Contact } from './contact/Contact';
+export { default as ContactPage } from './ContactPage';

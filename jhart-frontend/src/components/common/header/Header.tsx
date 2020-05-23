@@ -1,6 +1,6 @@
 import React from 'react';
-import { Logo, Gnb } from '../../components';
-import { Navigation } from '../../constants/navigation';
+import { Logo, Gnb } from '../..';
+import { Navigation } from '../../../constants/navigation';
 
 type HeaderProps = {
 	activeGnb: Navigation;
