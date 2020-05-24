@@ -1,7 +1,16 @@
-import React from "react";
+import React from 'react';
+import { Footer } from '../../components';
+import { HeaderContainer, NavigationContainer } from '../../containers';
 
 const CareerPage = () => {
-  return <div>Career</div>;
+  return (
+    <>
+      <HeaderContainer />
+      <NavigationContainer />
+      <div>Career</div>
+      <Footer />
+    </>
+  );
 };
 
 export default CareerPage;

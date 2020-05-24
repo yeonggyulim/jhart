@@ -10,50 +10,18 @@ import {
   ContactPage,
   BuddhismArtPage,
 } from './pages';
-import { Footer } from './components';
-import { HeaderContainer, NavigationContainer } from './containers';
-
-type PageRouteProps = {
-	component: any;
-	path: string;
-	exact?: boolean;
-};
-
-const PageRoute = ({
-  component: Component,
-  path,
-  exact,
-  ...rest
-}: PageRouteProps) => (
-  <Route
-    path={path}
-    exact={exact}
-    {...rest}
-    render={props => (
-      <div id="page">
-        <HeaderContainer />
-        <NavigationContainer />
-        <Component {...props} />
-        <Footer />
-      </div>
-    )}
-  />
-);
 
 const App = () => {
   return (
-  // <div id="page">
-  //   <HeaderContainer />
-  //   <Navigation />
     <Switch>
-      <PageRoute path="/information/map" component={MapPage} />
-      <PageRoute path="/information/career" component={CareerPage} />
-      <PageRoute path="/information" exact={true} component={InformationPage} />
+      <Route path="/information/map" component={MapPage} />
+      <Route path="/information/career" component={CareerPage} />
+      <Route path="/information" exact={true} component={InformationPage} />
       {/* TODO: change name to buddha-statue, antique, character */}
       <Route path="/processing/probuddha" />
       <Route path="/processing/probequest" />
       <Route path="/processing/procha" />
-      <PageRoute path="/processing" exact={true} component={ProcessingPage} />
+      <Route path="/processing" exact={true} component={ProcessingPage} />
       <Route path="/modeling/art-exhibition" />
       <Route path="/modeling/diorama" />
       <Route path="/modeling/antique-reproduction" />
@@ -62,20 +30,18 @@ const App = () => {
       <Route path="/modeling/sculpture" />
       <Route path="/modeling/character" />
       <Route path="/modeling/model" />
-      <PageRoute path="/modeling" exact={true} component={ModelingPage} />
+      <Route path="/modeling" exact={true} component={ModelingPage} />
       <Route path="/buddhism-art/buddha-statue" />
       <Route path="/buddhism-art/buddhist-sculpture" />
       <Route path="/buddhism-art/buddhist-architecture" />
       <Route path="/buddhism-art/buddhist-goods" />
       <Route path="/buddhism-art/3d-data" />
-      <PageRoute path="/buddhism-art" exact={true} component={BuddhismArtPage} />
-      <PageRoute path="/contact-us" component={ContactPage} />
-      <PageRoute path="/" exact component={MainPage} />
+      <Route path="/buddhism-art" exact={true} component={BuddhismArtPage} />
+      <Route path="/contact-us" component={ContactPage} />
+      <Route path="/" exact component={MainPage} />
       {/* TODO: Error Page */}
       <Route />
     </Switch>
-  //   <Footer />
-  // </div>
   );
 };
 

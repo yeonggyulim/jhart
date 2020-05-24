@@ -1,7 +1,16 @@
 import React from 'react';
+import { Footer } from '../../components';
+import { HeaderContainer, NavigationContainer } from '../../containers';
 
 const ModelingPage = () => {
-  return <div>Modeling</div>;
+  return (
+    <>
+      <HeaderContainer />
+      <NavigationContainer />
+      <div>Modeling</div>
+      <Footer />
+    </>
+  );
 };
 
 export default ModelingPage;

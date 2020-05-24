@@ -1,6 +1,6 @@
-export { default as Logo } from './logo/Logo';
+export { default as Logo } from './common/Logo';
 export { default as Gnb } from './common/Gnb';
 
-export { default as Header } from '../components/common/header/Header';
+export { default as Header } from './common/Header';
 export { default as Footer } from './common/Footer';
-export { default as Navigation } from '../components/common/navigation/Navigation';
+export { default as Navigation } from './common/Navigation';
