@@ -51,14 +51,15 @@ const Navigation = ({ location }: RouteComponentProps) => {
         // '/contact-us': [],
     };
 
-    const path = location.pathname as RootNavigation;
+    const path = location.pathname;
+    const rootPath = '/' + path.split('/')[1] as RootNavigation;
 
     return (
         <div className="outer-layout navigation">
             <div className="inner-layout navigation">
                 <nav>
                     {
-                        path && navigations[path].map((navigation: Navigation) => {
+                        rootPath && navigations[rootPath].map((navigation: Navigation) => {
                             return (
                                 <Link to={navigation.link}>
                                     {navigation.title}
