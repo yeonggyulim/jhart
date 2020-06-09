@@ -13,7 +13,6 @@
   - React Bootstrap (React UI Framework)
   - Redux (Maniging State)
 
-- Backend (Todo: Node.js)
-
-
-##
+- Backend
+  - Node.js
+  - Koa (Web Framework for Node.js)
