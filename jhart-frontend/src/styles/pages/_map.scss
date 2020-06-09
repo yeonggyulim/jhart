@@ -1,13 +1,9 @@
-.map {
-    margin-top: 2rem;
-
-    .details {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        max-width: 25rem;
-        margin: 2rem auto;
-        font-size: 1.1rem;
-        line-height: 2rem;
-    }
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 25rem;
+	margin: 2rem auto;
+	font-size: 1.1rem;
+	line-height: 2rem;
 }

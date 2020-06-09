@@ -1,21 +1,18 @@
 import React from 'react';
 import information from '../../images/information.gif';
-import { Header, Footer, Navigation } from '../../components';
-import { HeaderContainer, NavigationContainer } from '../../containers';
+import { Header, Footer, Navigation, Center } from '../../components';
 
 const InformationPage = () => {
-  return (
-    <>
-      <Header />
-      <Navigation />
-      <div className="outer-layout information">
-        <div className="inner-layout">
-          <img src={information} alt="information" />
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<Navigation />
+			<Center>
+				<img src={information} alt="information" />
+			</Center>
+			<Footer />
+		</>
+	);
 };
 
 export default InformationPage;
