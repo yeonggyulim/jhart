@@ -1,12 +1,12 @@
 import React from 'react';
-import { Footer } from '../../components';
+import { Header, Footer, Navigation } from '../../components';
 import { HeaderContainer, NavigationContainer } from '../../containers';
 
 const ModelingPage = () => {
   return (
     <>
-      <HeaderContainer />
-      <NavigationContainer />
+      <Header />
+      <Navigation />
       <div>Modeling</div>
       <Footer />
     </>

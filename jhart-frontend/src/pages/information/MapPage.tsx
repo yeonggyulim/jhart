@@ -1,14 +1,12 @@
 import React from 'react';
 import map from '../../images/map.jpg';
-// import map2 from '/images/map.jpg';
-import { Footer } from '../../components';
-import { HeaderContainer, NavigationContainer } from '../../containers';
+import { Header, Footer, Navigation } from '../../components';
 
 const MapPage = () => {
   return (
     <>
-      <HeaderContainer />
-      <NavigationContainer />
+      <Header />
+      <Navigation />
       <div className="outer-layout map">
         <div className="inner-layout">
           <img src={map} alt="map" />

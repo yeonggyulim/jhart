@@ -1,5 +1,9 @@
-.nav-item {
-	display: flex;
-	align-items: center;
-	font-size: 1.25rem;
+.gnb {
+	a {
+		font-size: 1.25rem;
+
+		& + a {
+			margin-left: 1rem;
+		}
+	}
 }

@@ -1,15 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import main_banner_0 from '../images/main_banner_0.jpeg';
-// import main_banner_1 from '../../images/main_banner_1.jpg';
-import { Footer } from '../components';
-import { HeaderContainer, NavigationContainer } from '../containers';
+import { Header, Footer, Navigation } from '../components';
 
 const MainPage = () => {
   return (
     <>
-      <HeaderContainer />
-      <NavigationContainer />
+      <Header />
       <div className="outer-layout main">
         <div className="inner-layout">
           <Carousel>

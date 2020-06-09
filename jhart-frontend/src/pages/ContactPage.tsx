@@ -1,16 +1,14 @@
 import React from 'react';
-import { Footer } from '../components';
-import { HeaderContainer, NavigationContainer } from '../containers';
+import { Header, Footer } from '../components';
 
 const ContactPage = () => {
-  return (
-    <>
-      <HeaderContainer />
-      <NavigationContainer />
-      <div>Contact</div>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <div>Contact</div>
+            <Footer />
+        </>
+    );
 };
 
 export default ContactPage;

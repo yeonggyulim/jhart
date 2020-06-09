@@ -37,7 +37,8 @@ const HeaderContainer = () => {
   };
 
   return (
-    <Header activeGnb={activeGnb} onChangeNavigation={onChangeNavigation} />
+    // <Header activeGnb={activeGnb} onChangeNavigation={onChangeNavigation} />
+    <Header />
   );
 };
 

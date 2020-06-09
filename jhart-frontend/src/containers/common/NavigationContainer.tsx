@@ -37,7 +37,8 @@ const NavigationContainer = () => {
   ];
 
   const gnb = useSelector((state: RootState) => state.navigation.navigation);
-  return <Navigation navigations={navigations[gnb]} />;
+  // return <Navigation navigations={navigations[gnb]} />;
+  return <Navigation/>;
 };
 
 export default NavigationContainer;
