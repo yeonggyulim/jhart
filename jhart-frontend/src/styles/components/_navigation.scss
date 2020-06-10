@@ -1,22 +1,25 @@
 .navigation {
-	background-color: $background-color-ivory;
+    background-color: $background-color-ivory;
     color: $logo-color-blue-green;
-    
+
     a {
         font-size: 1rem;
         line-height: 3rem;
         margin: 0.5rem 1rem;
+        color: $logo-color-blue-green;
         cursor: pointer;
+
+        &:-webkit-any-link {
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $logo-color-blue;
+        }
+
+        &:active {
+            font-weight: bold;
+            color: $logo-color-green;
+        }
     }
-
-    a:hover {
-        color: $logo-color-blue;
-    }
-
-    a.active {
-        font-weight: bold;
-        color: $logo-color-green;
-    }
-
-
 }
