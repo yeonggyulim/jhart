@@ -14,7 +14,7 @@ const posts = [
 POST /api/posts
 { title, body }
 */
-exports.write = (ctx: any) => {
+export const write = (ctx: any) => {
   // REST API의 Request Body는 ctx.request.body에서 조회할 수 있습니다.
   const { title, body } = ctx.request.body;
   postId += 1; // 기존 postId 값에 1 더함
@@ -26,14 +26,14 @@ exports.write = (ctx: any) => {
 /* 포스트 목록 조회
 GET /api/posts
 */
-exports.list = (ctx: Context) => {
+export const list = (ctx: Context) => {
   ctx.body = posts;
 };
 
 /* 특정 포스트 조회
 GET /api/posts/:id
 */
-exports.read = (ctx: Context) => {
+export const read = (ctx: Context) => {
   const { id } = ctx.params;
   // 주어진 id 값으로 포스트 찾음
   // 파라미터로 받아온 값: 문자열
@@ -53,7 +53,7 @@ exports.read = (ctx: Context) => {
 /* 특정 포스트 제거
 DELETE /api/posts/:id
 */
-exports.remove = (ctx: Context) => {
+export const remove = (ctx: Context) => {
   const { id } = ctx.params;
   // 해당 id를 가진 post가 몇 번째인지 확인
   const index = posts.findIndex((p) => p.id.toString() === id);
@@ -74,7 +74,7 @@ exports.remove = (ctx: Context) => {
 PUT /api/posts/:id
 { title, body }
 */
-exports.replace = (ctx: any) => {
+export const replace = (ctx: any) => {
     // PUST 메소드는 전체 포스트 정보 입력하여 데이터 통째로 교체할 때 사용
     const { id } = ctx.params;
     // 해당 id를 가진 post가 몇 번째인지 확인
@@ -100,7 +100,7 @@ exports.replace = (ctx: any) => {
 PATCH /api/posts/:id
 { title, body }
 */
-exports.update = (ctx: any) => {
+export const update = (ctx: any) => {
     // PATCH 메소드는 주어진 필드만 교체
     const { id } = ctx.params;
     // 해당 id를 가진 post가 몇 번째인지 확인 
