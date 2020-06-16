@@ -70,32 +70,6 @@ export const remove = (ctx: Context) => {
   ctx.status = 204; // No Content
 };
 
-/* 포스트 수정(교체)
-PUT /api/posts/:id
-{ title, body }
-*/
-export const replace = (ctx: any) => {
-    // PUST 메소드는 전체 포스트 정보 입력하여 데이터 통째로 교체할 때 사용
-    const { id } = ctx.params;
-    // 해당 id를 가진 post가 몇 번째인지 확인
-    const index = posts.findIndex(p => p.id.toString() === id);
-    // 포스트 없으면 오류 반환
-    if (index === -1) {
-        ctx.status = 404;
-        ctx.body = {
-            message: '포스트가 존재하지 않습니다.',
-        };
-        return;
-    }
-    // 전체 객체를 덮어 씌움
-    // id를 제외한 기존 정보 날리고, 새로운 객체 생성
-    posts[index] = {
-        id,
-        ...ctx.request.body,
-    };
-    ctx.body = posts[index];
-};
-
 /* 포스트 수정(특정 필드 변경)
 PATCH /api/posts/:id
 { title, body }
