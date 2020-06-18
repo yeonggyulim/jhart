@@ -73,21 +73,14 @@ export const read = async (ctx: Context) => {
 /* 특정 포스트 제거
 DELETE /api/posts/:id
 */
-export const remove = (ctx: Context) => {
+export const remove = async (ctx: Context) => {
   const { id } = ctx.params;
-  // 해당 id를 가진 post가 몇 번째인지 확인
-  const index = posts.findIndex((p) => p.id.toString() === id);
-  // 포스트 없으면 오류 반환
-  if (index === -1) {
-    ctx.status = 404;
-    ctx.body = {
-      message: '포스트가 존재하지 않습니다.',
-    };
-    return;
+  try {
+      await Post.findByIdAndRemove(id).exec();
+      ctx.status = 204; // No Content (성공, but 응답 데이터 X)
+  } catch (e) {
+      ctx.throw(500, e);
   }
-  // index번째 아이템을 제거
-  posts.splice(index, 1);
-  ctx.status = 204; // No Content
 };
 
 /* 포스트 수정(특정 필드 변경)
