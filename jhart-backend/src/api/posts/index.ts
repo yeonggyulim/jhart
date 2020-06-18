@@ -8,6 +8,6 @@ posts.post('/', postsCtrl.write);
 posts.get('/:categories', postsCtrl.list);
 posts.get('/:categories/:id', postsCtrl.read);
 posts.delete('/:id', postsCtrl.remove);
-posts.patch('/:categories/:id', postsCtrl.update);
+posts.patch('/:id', postsCtrl.update);
 
 export default posts;

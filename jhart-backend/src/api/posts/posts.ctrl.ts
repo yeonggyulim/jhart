@@ -76,34 +76,33 @@ DELETE /api/posts/:id
 export const remove = async (ctx: Context) => {
   const { id } = ctx.params;
   try {
-      await Post.findByIdAndRemove(id).exec();
-      ctx.status = 204; // No Content (성공, but 응답 데이터 X)
+    await Post.findByIdAndRemove(id).exec();
+    ctx.status = 204; // No Content (성공, but 응답 데이터 X)
   } catch (e) {
-      ctx.throw(500, e);
+    ctx.throw(500, e);
   }
 };
 
 /* 포스트 수정(특정 필드 변경)
 PATCH /api/posts/:id
-{ title, body }
+{ 
+    title: '수정 제목',
+    body: '수정 내용',
+    categories: '수정 카테고리'
+}
 */
-export const update = (ctx: any) => {
-  // PATCH 메소드는 주어진 필드만 교체
+export const update = async (ctx: any) => {
   const { id } = ctx.params;
-  // 해당 id를 가진 post가 몇 번째인지 확인
-  const index = posts.findIndex((p) => p.id.toString() === id);
-  // 포스트 없으면 오류 반환
-  if (index === -1) {
-    ctx.status = 404;
-    ctx.body = {
-      message: '포스트가 존재하지 않습니다.',
-    };
-    return;
+  try {
+    const post = await Post.findByIdAndUpdate(id, ctx.request.body, {
+      new: true, // 업데이트된 데이터 반환
+    }).exec();
+    if (!post) {
+      ctx.status = 404;
+      return;
+    }
+    ctx.body = post;
+  } catch (e) {
+    ctx.throw(500, e);
   }
-  // 기존 값에 정보 덮어 씌움
-  posts[index] = {
-    ...posts[index],
-    ...ctx.request.body,
-  };
-  ctx.body = posts[index];
 };
