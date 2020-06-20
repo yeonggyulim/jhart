@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const CareerSchema = new Schema({
     year: Number,
-    career: String,
+    history: String,
 });
 
 const Career = mongoose.model('Career', CareerSchema);
