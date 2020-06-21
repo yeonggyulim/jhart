@@ -1,6 +1,7 @@
 import { Context, Next } from 'koa';
 import Career from '../../models/career';
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 const { ObjectId } = mongoose.Types;
 
@@ -17,11 +18,22 @@ export const checkObjectId = (ctx: Context, next: Next) => {
 POST /api/careers
 { 
     year: '연도',
-    career: '연혁',
+    history: '연혁',
 }
 */
 export const write = async (ctx: any) => {
-  // REST API의 Request Body는 ctx.request.body에서 조회할 수 있습니다.
+  const schema = Joi.object().keys({
+    year: Joi.number().required(),
+    history: Joi.string().required(),
+  });
+
+  const result = Joi.validate(ctx.request.body, schema);
+  if (result.error) {
+    ctx.status = 400; // Bad Request
+    ctx.body = result.error;
+    return;
+  }
+
   const { year, history } = ctx.request.body;
   const career = new Career({
     year,
@@ -64,6 +76,18 @@ export const remove = async (ctx: Context) => {
 PATCH /api/careers/:id
 */
 export const update = async (ctx: Context) => {
+  const schema = Joi.object().keys({
+    year: Joi.number(),
+    history: Joi.string(),
+  });
+
+  const result = Joi.validate(ctx.request.body, schema);
+  if (result.error) {
+    ctx.status = 400; // Bad Request
+    ctx.body = result.error;
+    return;
+  }
+
   const { id } = ctx.params;
   try {
     const career = await Career.findByIdAndUpdate(id, ctx.request.body, {

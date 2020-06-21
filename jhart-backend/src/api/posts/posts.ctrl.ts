@@ -1,6 +1,7 @@
 import { Context, Next } from 'koa';
 import Post from '../../models/post';
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 const { ObjectId } = mongoose.Types;
 
@@ -22,7 +23,21 @@ POST /api/posts
 }
 */
 export const write = async (ctx: any) => {
-  // REST API의 Request Body는 ctx.request.body에서 조회할 수 있습니다.
+  const schema = Joi.object().keys({
+    // 객체가 다음 필드 가지고 있음을 검증
+    title: Joi.string().required(),
+    body: Joi.string().required(),
+    categories: Joi.string().required(),
+  });
+
+  // 검증 후 실패 => 에러 처리
+  const result = Joi.validate(ctx.request.body, schema);
+  if (result.error) {
+    ctx.status = 400; // Bad Request
+    ctx.body = result.error;
+    return;
+  }
+
   const { title, body, categories } = ctx.request.body;
   const post = new Post({
     title,
@@ -40,7 +55,6 @@ export const write = async (ctx: any) => {
 /* 해당 카테고리의 포스트 목록 조회
 GET /api/posts/:categories
 */
-
 export const list = async (ctx: Context) => {
   const { categories } = ctx.params;
   try {
@@ -94,6 +108,21 @@ PATCH /api/posts/:id
 }
 */
 export const update = async (ctx: any) => {
+  const schema = Joi.object().keys({
+    // 객체가 다음 필드 가지고 있음을 검증
+    title: Joi.string(),
+    body: Joi.string(),
+    categories: Joi.string().required(),
+  });
+
+  // 검증 후 실패 => 에러 처리
+  const result = Joi.validate(ctx.request.body, schema);
+  if (result.error) {
+    ctx.status = 400; // Bad Request
+    ctx.body = result.error;
+    return;
+  }
+
   const { id } = ctx.params;
   try {
     const post = await Post.findByIdAndUpdate(id, ctx.request.body, {

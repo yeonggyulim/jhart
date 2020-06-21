@@ -5,12 +5,14 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "joi": "^14.3.1",
     "koa": "^2.12.1",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^9.0.1",
     "mongoose": "^5.9.18"
   },
   "devDependencies": {
+    "@types/joi": "^14.3.4",
     "@types/koa": "^2.11.3",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.4.1",
