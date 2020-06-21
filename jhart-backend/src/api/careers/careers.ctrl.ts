@@ -1,5 +1,17 @@
-import { Context } from 'koa';
+import { Context, Next } from 'koa';
 import Career from '../../models/career';
+import mongoose from 'mongoose';
+
+const { ObjectId } = mongoose.Types;
+
+export const checkObjectId = (ctx: Context, next: Next) => {
+  const { id } = ctx.params;
+  if (!ObjectId.isValid(id)) {
+    ctx.status = 400; // Bad Request
+    return;
+  }
+  return next();
+};
 
 /* 커리어 작성
 POST /api/careers
