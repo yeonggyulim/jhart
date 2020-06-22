@@ -58,7 +58,7 @@ GET /api/posts/:categories
 export const list = async (ctx: Context) => {
   const { categories } = ctx.params;
   try {
-    const posts = await Post.find({ categories }).exec();
+    const posts = await Post.find({ categories }).sort({ _id: -1 }).exec();
     if (!posts) {
       ctx.status = 404; // Not Found
       return;
