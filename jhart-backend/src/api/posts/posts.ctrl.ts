@@ -57,10 +57,19 @@ GET /api/posts/:categories
 */
 export const list = async (ctx: Context) => {
   const { categories } = ctx.params;
+  // query는 문자열 => 숫자로 변환
+  // default : 1
+  const page = parseInt(ctx.query.page || '1', 10);
+  if (page < 1) {
+    ctx.status = 400;
+    return;
+  }
+
   try {
     const posts = await Post.find({ categories })
       .sort({ _id: -1 })
       .limit(10)
+      .skip((page - 1) * 10)
       .exec();
     if (!posts) {
       ctx.status = 404; // Not Found
