@@ -77,7 +77,13 @@ export const list = async (ctx: Context) => {
       ctx.status = 404; // Not Found
       return;
     }
-    ctx.body = posts;
+    ctx.body = posts
+      .map((post) => post.toJSON())
+      .map((post) => ({
+        ...post,
+        body:
+          post.body.length < 200 ? post.body : `${post.body.slice(0, 200)}...`,
+      }));
   } catch (e) {
     ctx.throw(500, e);
   }
