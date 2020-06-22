@@ -52,7 +52,7 @@ GET /api/careers
 */
 export const list = async (ctx: Context) => {
   try {
-    const careers = await Career.find().exec();
+    const careers = await Career.find().sort({ year: -1, _id: -1 }).exec();
     ctx.body = careers;
   } catch (e) {
     ctx.throw(500, e);
