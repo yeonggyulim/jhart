@@ -1,6 +1,7 @@
 import { Context } from 'koa';
 import Joi from 'joi';
 import User from '../../models/user';
+import constants from '../../lib/constants';
 
 /*
     POST /api/auth/register
@@ -39,6 +40,12 @@ export const register = async (ctx: Context) => {
 
     // 응답할 데이터에서 hashedPassword 필드 제거
     ctx.body = user.serialize();
+
+    const token = user.generateToken();
+    ctx.cookies.set('access_token', token, {
+      maxAge: constants.tokenTTL,
+      httpOnly: true,
+    });
   } catch (e) {
     ctx.throw(500, e);
   }
@@ -76,6 +83,11 @@ export const login = async (ctx: Context) => {
       return;
     }
     ctx.body = user.serialize();
+    const token = user.generateToken();
+    ctx.cookies.set('access_token', token, {
+      maxAge: constants.tokenTTL,
+      httpOnly: true,
+    });
   } catch (e) {
     ctx.throw(500, e);
   }
@@ -83,6 +95,13 @@ export const login = async (ctx: Context) => {
 
 export const check = async (ctx: Context) => {
   // 로그인 상태 확인
+  const { user } = ctx.state;
+  if (!user) {
+    // 로그인 x
+    ctx.status = 401; // Unauthorized
+    return;
+  }
+  ctx.body = user;
 };
 
 export const logout = async (ctx: Context) => {

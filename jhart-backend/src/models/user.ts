@@ -1,5 +1,6 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 import bcrypt from 'bcrypt';
+import jwt, { Secret } from 'jsonwebtoken';
 
 const UserSchema = new Schema({
   username: String,
@@ -22,6 +23,21 @@ UserSchema.methods.serialize = function () {
   return data;
 };
 
+UserSchema.methods.generateToken = function () {
+  const token = jwt.sign(
+    // 첫 번째 파라미터에는 토큰 안에 집어넣고 싶은 데이터
+    {
+      _id: this.id,
+      username: this.username,
+    },
+    process.env.JWT_SECRET as Secret,
+    {
+      expiresIn: '7d', // 7일 동안 유효
+    },
+  );
+  return token;
+};
+
 UserSchema.statics.findByUsername = function (username: string) {
   return this.findOne({ username });
 };
@@ -30,6 +46,7 @@ interface IUserDocument extends Document {
   setPassword: (password: string) => {};
   checkPassword: (password: string) => boolean;
   serialize: () => {};
+  generateToken: () => string;
 }
 interface IUserModel extends Model<IUserDocument> {
   findByUsername: (username: string) => IUserDocument;
