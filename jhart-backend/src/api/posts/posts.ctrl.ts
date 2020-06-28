@@ -31,6 +31,7 @@ export const write = async (ctx: Context) => {
     title,
     body,
     categories,
+    user: ctx.state.user,
   });
   try {
     await post.save();

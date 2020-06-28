@@ -1,4 +1,4 @@
-import { Context, Next } from 'koa';
+import { Context } from 'koa';
 import Career from '../../models/career';
 import Joi from 'joi';
 
@@ -26,6 +26,7 @@ export const write = async (ctx: Context) => {
   const career = new Career({
     year,
     history,
+    user: ctx.state.user,
   });
   try {
     await career.save();
