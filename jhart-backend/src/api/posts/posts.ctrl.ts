@@ -22,7 +22,7 @@ POST /api/posts
     categories: '카테고리'
 }
 */
-export const write = async (ctx: any) => {
+export const write = async (ctx: Context) => {
   const schema = Joi.object().keys({
     // 객체가 다음 필드 가지고 있음을 검증
     title: Joi.string().required(),
@@ -127,7 +127,7 @@ PATCH /api/posts/:id
     categories: '수정 카테고리'
 }
 */
-export const update = async (ctx: any) => {
+export const update = async (ctx: Context) => {
   const schema = Joi.object().keys({
     // 객체가 다음 필드 가지고 있음을 검증
     title: Joi.string(),

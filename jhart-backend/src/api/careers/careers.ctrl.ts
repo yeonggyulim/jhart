@@ -21,7 +21,7 @@ POST /api/careers
     history: '연혁',
 }
 */
-export const write = async (ctx: any) => {
+export const write = async (ctx: Context) => {
   const schema = Joi.object().keys({
     year: Joi.number().required(),
     history: Joi.string().required(),
