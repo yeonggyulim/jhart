@@ -1,18 +1,6 @@
-import { Context, Next } from 'koa';
+import { Context } from 'koa';
 import Post from '../../models/post';
-import mongoose from 'mongoose';
 import Joi from 'joi';
-
-const { ObjectId } = mongoose.Types;
-
-export const checkObjectId = (ctx: Context, next: Next) => {
-  const { id } = ctx.params;
-  if (!ObjectId.isValid(id)) {
-    ctx.status = 400; // Bad Request
-    return;
-  }
-  return next();
-};
 
 /* 포스트 작성
 POST /api/posts
