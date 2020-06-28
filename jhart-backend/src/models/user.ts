@@ -32,7 +32,7 @@ interface IUserDocument extends Document {
   serialize: () => {};
 }
 interface IUserModel extends Model<IUserDocument> {
-  findByUsername: (username: string) => boolean;
+  findByUsername: (username: string) => IUserDocument;
 }
 
 const User = mongoose.model<IUserDocument, IUserModel>('User', UserSchema);
