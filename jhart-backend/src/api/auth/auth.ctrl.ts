@@ -93,6 +93,9 @@ export const login = async (ctx: Context) => {
   }
 };
 
+/*
+  GET /api/auth/check
+*/
 export const check = async (ctx: Context) => {
   // 로그인 상태 확인
   const { user } = ctx.state;
