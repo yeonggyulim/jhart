@@ -107,6 +107,11 @@ export const check = async (ctx: Context) => {
   ctx.body = user;
 };
 
+/*
+  GET /api/auth/logout
+*/
 export const logout = async (ctx: Context) => {
   // 로그아웃
+  ctx.cookies.set('access_token');
+  ctx.status = 204; // No Content
 };
