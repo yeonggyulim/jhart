@@ -66,7 +66,7 @@ export const write = async (ctx: Context) => {
 };
 
 /* 해당 카테고리의 포스트 목록 조회
-GET /api/posts/:categories
+GET /api/posts/:categories?page=
 */
 export const list = async (ctx: Context) => {
   const { categories } = ctx.params;
