@@ -1,6 +1,30 @@
-import { Context } from 'koa';
+import { Context, Next } from 'koa';
 import Career from '../../models/career';
 import Joi from 'joi';
+
+export const getCareerById = async (ctx: Context, next: Next) => {
+  const { id } = ctx.params;
+  try {
+    const career = await Career.findById(id).exec();
+    if (!career) {
+      ctx.status = 404; // Not Found
+      return;
+    }
+    ctx.state.career = career;
+    return next();
+  } catch (e) {
+    ctx.throw(500, e);
+  }
+};
+
+export const checkOwnCareer = (ctx: Context, next: Next) => {
+  const { user, career } = ctx.state;
+  if (career.user._id.toString() !== user._id) {
+    ctx.status = 403;
+    return;
+  }
+  return next();
+};
 
 /* 커리어 작성
 POST /api/careers
@@ -46,6 +70,13 @@ export const list = async (ctx: Context) => {
   } catch (e) {
     ctx.throw(500, e);
   }
+};
+
+/* 특정 커리어 조회
+GET /api/careers/:id
+*/
+export const read = async (ctx: Context) => {
+  ctx.body = ctx.state.career;
 };
 
 /* 특정 커리어 제거

@@ -1,6 +1,30 @@
-import { Context } from 'koa';
+import { Context, Next } from 'koa';
 import Post from '../../models/post';
 import Joi from 'joi';
+
+export const getPostById = async (ctx: Context, next: Next) => {
+  const { id } = ctx.params;
+  try {
+    const post = await Post.findById(id).exec();
+    if (!post) {
+      ctx.status = 404; // Not Found
+      return;
+    }
+    ctx.state.post = post;
+    return next();
+  } catch (e) {
+    ctx.throw(500, e);
+  }
+};
+
+export const checkOwnPost = (ctx: Context, next: Next) => {
+  const { user, post } = ctx.state;
+  if (post.user._id.toString() !== user._id) {
+    ctx.status = 403;
+    return;
+  }
+  return next();
+};
 
 /* 포스트 작성
 POST /api/posts
@@ -82,17 +106,7 @@ export const list = async (ctx: Context) => {
 GET /api/posts/:categories/:id
 */
 export const read = async (ctx: Context) => {
-  const { categories, id } = ctx.params;
-  try {
-    const post = await Post.find({ categories, _id: id }).exec();
-    if (!post) {
-      ctx.status = 404; // Not Found
-      return;
-    }
-    ctx.body = post;
-  } catch (e) {
-    ctx.throw(500, e);
-  }
+  ctx.body = ctx.state.post;
 };
 
 /* 특정 포스트 제거
@@ -121,7 +135,7 @@ export const update = async (ctx: Context) => {
     // 객체가 다음 필드 가지고 있음을 검증
     title: Joi.string(),
     body: Joi.string(),
-    categories: Joi.string().required(),
+    categories: Joi.string().forbidden(),
   });
 
   // 검증 후 실패 => 에러 처리

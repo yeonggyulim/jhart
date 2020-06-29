@@ -7,7 +7,22 @@ const careers = new Router();
 
 careers.post('/', checkLoggedIn, careersCtrl.write);
 careers.get('/', careersCtrl.list);
-careers.delete('/:id', checkLoggedIn, checkObjectId, careersCtrl.remove);
-careers.patch('/:id', checkLoggedIn, checkObjectId, careersCtrl.update);
+careers.get('/:id', checkObjectId, careersCtrl.getCareerById, careersCtrl.read);
+careers.delete(
+  '/:id',
+  checkLoggedIn,
+  checkObjectId,
+  careersCtrl.getCareerById,
+  careersCtrl.checkOwnCareer,
+  careersCtrl.remove,
+);
+careers.patch(
+  '/:id',
+  checkLoggedIn,
+  checkObjectId,
+  careersCtrl.getCareerById,
+  careersCtrl.checkOwnCareer,
+  careersCtrl.update,
+);
 
 export default careers;
