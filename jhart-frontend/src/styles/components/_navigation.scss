@@ -9,10 +9,6 @@
         color: $logo-color-blue-green;
         cursor: pointer;
 
-        &:-webkit-any-link {
-            text-decoration: none;
-        }
-
         &:hover {
             color: $logo-color-blue;
         }
