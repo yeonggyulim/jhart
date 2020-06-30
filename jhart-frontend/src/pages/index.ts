@@ -10,3 +10,6 @@ export { default as ModelingPage } from './modeling/ModelingPage';
 export { default as BuddhismArtPage } from './buddhismArt/BuddhismArtPage';
 
 export { default as ContactPage } from './ContactPage';
+
+export { default as LoginPage } from './LoginPage';
+export { default as RegisterPage } from './RegisterPage';
