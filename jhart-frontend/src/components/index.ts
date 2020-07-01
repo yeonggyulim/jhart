@@ -7,3 +7,6 @@ export { default as Navigation } from './common/Navigation';
 export { default as Center } from './common/Center';
 
 export { default as Button } from './common/Button';
+
+export { default as AuthForm } from './auth/AuthForm';
+export { default as AuthTemplate } from './auth/AuthTemplate';

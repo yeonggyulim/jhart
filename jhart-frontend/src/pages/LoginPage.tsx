@@ -1,8 +1,12 @@
 import React from 'react';
-import { Button } from '../components';
+import { AuthTemplate, AuthForm } from '../components';
 
 const LoginPage = () => {
-	return <Button>로그인</Button>;
+	return (
+		<AuthTemplate>
+			<AuthForm type="login" />
+		</AuthTemplate>
+	);
 };
 
 export default LoginPage;

@@ -7,9 +7,24 @@
 	color: white;
 	outline: none;
     cursor: pointer;
-    
-    background: $oc-gray-8;
-    &:hover {
-        background: $oc-gray-6;
-    }
+    margin-top: 1rem;
+
+	background: $oc-gray-8;
+	&:hover {
+		background: $oc-gray-6;
+	}
+
+	&.full-width {
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+		width: 100%;
+		font-size: 1.125rem;
+	}
+
+	&.cyan {
+		background: $oc-cyan-5;
+		&:hover {
+			background: $oc-cyan-4;
+		}
+	}
 }
