@@ -9,20 +9,24 @@ const textMap = {
 
 type AuthFormProps = {
 	type: 'login' | 'register';
-	children?: React.ReactNode;
+	form: { username: string; password: string; passwordConfirm?: string };
+	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const AuthForm = ({ type, children }: AuthFormProps) => {
+const AuthForm = ({ type, form, onChange, onSubmit }: AuthFormProps) => {
 	const text = textMap[type];
 	return (
 		<div className="auth-form">
 			<h3>{text}</h3>
-			<form>
+			<form onSubmit={onSubmit}>
 				<input
 					className="styled-input"
 					autoComplete="username"
 					name="username"
 					placeholder="아이디"
+					onChange={onChange}
+					value={form.username}
 				/>
 				<input
 					className="styled-input"
@@ -30,6 +34,8 @@ const AuthForm = ({ type, children }: AuthFormProps) => {
 					name="password"
 					placeholder="비밀번호"
 					type="password"
+					onChange={onChange}
+					value={form.password}
 				/>
 				{type === 'register' && (
 					<input
@@ -37,6 +43,8 @@ const AuthForm = ({ type, children }: AuthFormProps) => {
 						name="passwordConfirm"
 						placeholder="비밀번호 확인"
 						type="password"
+						onChange={onChange}
+						value={form.passwordConfirm}
 					/>
 				)}
 				<Button className="full-width cyan">{text}</Button>
