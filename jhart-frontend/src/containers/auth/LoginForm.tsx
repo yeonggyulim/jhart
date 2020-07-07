@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../modules';
-import { changeField, initializeForm, KeyType } from '../../modules/auth';
+import { authActions, KeyType } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
 
 const LoginForm = () => {
@@ -13,7 +13,7 @@ const LoginForm = () => {
 	const onChange = (e: React.FormEvent<HTMLInputElement>) => {
 		const { value, name } = e.currentTarget;
 		dispatch(
-			changeField({
+			authActions.changeField({
 				form: 'login',
 				key: name as KeyType,
 				value,
@@ -29,7 +29,7 @@ const LoginForm = () => {
 
 	// 컴포넌트가 청므 렌더링될 때 form 초기화
 	useEffect(() => {
-		dispatch(initializeForm('login'));
+		dispatch(authActions.initializeForm('login'));
 	}, [dispatch]);
 
 	return (

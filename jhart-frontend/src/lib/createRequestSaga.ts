@@ -2,8 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import {
 	StartLoadingAction,
 	FinishLoadingAction,
-	startLoading,
-	finishLoading,
+	loadingActions,
 } from '../modules/loading';
 
 export const createRequestActionTypes = (type: string) => {
@@ -17,7 +16,7 @@ export default function createRequestSaga(type: string, request: any) {
 	const FAILURE = `${type}_FAILURE`;
 
 	return function*(action: StartLoadingAction | FinishLoadingAction) {
-		yield put(startLoading(type)); // 로딩 시작
+		yield put(loadingActions.startLoading(type)); // 로딩 시작
 		try {
 			const response = yield call(request, action.payload);
 			yield put({
@@ -31,6 +30,6 @@ export default function createRequestSaga(type: string, request: any) {
 				error: true,
 			});
 		}
-		yield put(finishLoading(type)); // 로딩 끝
+		yield put(loadingActions.finishLoading(type)); // 로딩 끝
 	};
 }

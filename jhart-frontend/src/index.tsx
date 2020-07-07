@@ -5,21 +5,28 @@ import App from './App';
 import './styles/main.scss';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension'; 
-import { createStore } from 'redux';
-import rootReducer from './modules';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer, { rootSaga } from './modules';
+import createSagaMiddleware from 'redux-saga';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+	rootReducer,
+	composeWithDevTools(applyMiddleware(sagaMiddleware)),
+);
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'),
+	<Provider store={store}>
+		<BrowserRouter>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</BrowserRouter>
+	</Provider>,
+	document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
