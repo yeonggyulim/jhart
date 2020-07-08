@@ -23,7 +23,6 @@ export type FinishLoadingAction = ReturnType<
 	typeof loadingActions.finishLoading
 >;
 
-//inital State에 대한 타입 정하고 계속 해야함!
 export type LoadingState = {
 	[key: string]: boolean;
 };

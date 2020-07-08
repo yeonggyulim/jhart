@@ -3,14 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../modules';
 import { authActions, KeyType } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
+import { userActions } from '../../modules/user';
 
 const RegisterForm = () => {
 	const dispatch = useDispatch();
-	const { form, auth, authError } = useSelector(({ auth }: RootState) => ({
-		form: auth.register,
-		auth: auth.auth,
-		authError: auth.authError,
-	}));
+	const { form, auth, authError, user } = useSelector(
+		({ auth, user }: RootState) => ({
+			form: auth.register,
+			auth: auth.auth,
+			authError: auth.authError,
+			user: user.user,
+		}),
+	);
 	// 인풋 변경 이벤트 핸들러
 	const onChange = (e: React.FormEvent<HTMLInputElement>) => {
 		const { value, name } = e.currentTarget;
@@ -49,8 +53,17 @@ const RegisterForm = () => {
 		if (auth) {
 			console.log('회원가입 성공');
 			console.log(auth);
+			dispatch(userActions.check());
 		}
-	}, [auth, authError]);
+	}, [auth, authError, dispatch]);
+
+	// user 값이 잘 설정되었는지 확인
+	useEffect(() => {
+		if (user) {
+			console.log('check API 성공');
+			console.log(user);
+		}
+	}, [user]);
 
 	return (
 		<AuthForm
