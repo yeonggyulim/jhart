@@ -12,9 +12,10 @@ type AuthFormProps = {
 	form: { username: string; password: string; passwordConfirm?: string };
 	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+	error?: string | null;
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }: AuthFormProps) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }: AuthFormProps) => {
 	const text = textMap[type];
 	return (
 		<div className="auth-form">
@@ -47,6 +48,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }: AuthFormProps) => {
 						value={form.passwordConfirm}
 					/>
 				)}
+				{error && <div className="error-message">{error}</div>}
 				<Button className="full-width cyan">{text}</Button>
 			</form>
 			<div className="footer">
