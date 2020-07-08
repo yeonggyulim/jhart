@@ -83,7 +83,7 @@ export type AuthState = {
 		passwordConfirm?: string;
 	};
 	auth: string | null;
-	authError: Error | null;
+	authError: any;
 };
 
 const initialState: AuthState = {
