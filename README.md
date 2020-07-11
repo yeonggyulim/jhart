@@ -12,6 +12,7 @@
   - Sass
   - React Bootstrap (React UI Framework)
   - Redux (Maniging State)
+    - Saga
 
 - Backend
   - Node.js
