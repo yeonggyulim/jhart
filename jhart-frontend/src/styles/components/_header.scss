@@ -36,9 +36,15 @@
 			align-items: center;
 			justify-content: flex-end;
 			font-size: 2.5rem;
+			color: $logo-color-green;
 
+			.user-info {
+				font-weight: 800;
+				font-size: 1.5rem;
+				margin-right: 1rem;
+				margin-top: 0.5rem;
+			}
 			a {
-				color: $logo-color-green;
 				width: 4rem;
 			}
 		}

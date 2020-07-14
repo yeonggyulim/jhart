@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo, Gnb } from '..';
-import { FaRegUser } from 'react-icons/fa';
+import { FiUser, FiUserCheck } from 'react-icons/fi';
 import { GoLocation } from 'react-icons/go';
 
-const Header = () => {
+type HeaderProps = {
+	user?: any;
+};
+
+const Header = ({ user }: HeaderProps) => {
 	return (
 		<div className="outer-layout header">
 			<div className="inner-layout header">
@@ -15,9 +19,19 @@ const Header = () => {
 					<Gnb />
 				</div>
 				<div className="header--right">
-					<Link to="/login">
-						<FaRegUser />
-					</Link>
+					{user ? (
+						<>
+							<div className="user-info">{user.username}</div>
+							<Link to="/login">
+								<FiUserCheck />
+							</Link>
+						</>
+					) : (
+						<Link to="/login">
+							<FiUser />
+						</Link>
+					)}
+
 					<Link to="/information/map">
 						<GoLocation />
 					</Link>
