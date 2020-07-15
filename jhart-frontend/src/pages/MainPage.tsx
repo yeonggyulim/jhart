@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import main_banner_0 from '../images/main_banner_0.jpeg';
-import { Header, Footer } from '../components';
+import { Footer } from '../components';
 import { HeaderContainer } from '../containers';
 
 const MainPage = () => {
