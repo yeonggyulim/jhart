@@ -6,9 +6,10 @@ import { GoLocation } from 'react-icons/go';
 
 type HeaderProps = {
 	user?: any;
+	onLogout?: () => void;
 };
 
-const Header = ({ user }: HeaderProps) => {
+const Header = ({ user, onLogout }: HeaderProps) => {
 	return (
 		<div className="outer-layout header">
 			<div className="inner-layout header">
@@ -22,16 +23,15 @@ const Header = ({ user }: HeaderProps) => {
 					{user ? (
 						<>
 							<div className="user-info">{user.username}</div>
-							<Link to="/login">
+							<div onClick={onLogout}>
 								<FiUserCheck />
-							</Link>
+							</div>
 						</>
 					) : (
 						<Link to="/login">
 							<FiUser />
 						</Link>
 					)}
-
 					<Link to="/information/map">
 						<GoLocation />
 					</Link>

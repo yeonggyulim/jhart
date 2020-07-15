@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, call } from 'redux-saga/effects';
 import * as authAPI from '../lib/api/auth';
 import createRequestSaga, {
 	createRequestActionTypes,
@@ -11,12 +11,14 @@ const TEMP_SET_USER = 'user/TEMP_SET_USER' as const; // 새로고침 이후 임�
 const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes(
 	'user/CHECK',
 );
+const LOGOUT = 'user/LOGOUT';
 
 // Action Creators
 export const userActions = {
 	// createAction<payload 타입, ...액션 생성함수의 파라미터들>
 	tempSetUser: createAction<string, string>(TEMP_SET_USER, user => user),
 	check: createAction(CHECK),
+	logout: createAction(LOGOUT),
 };
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
@@ -29,9 +31,19 @@ function checkFailureSaga() {
 	}
 }
 
+function* logoutSaga() {
+	try {
+		yield call(authAPI.logout); // logout API 호출
+		localStorage.removeItem('user'); // localStorage에서 user를 제거
+	} catch (e) {
+		console.log(e);
+	}
+}
+
 export function* userSaga() {
 	yield takeLatest(CHECK, checkSaga);
 	yield takeLatest(CHECK_FAILURE, checkFailureSaga);
+	yield takeLatest(LOGOUT, logoutSaga);
 }
 
 export type UserState = {
@@ -59,6 +71,10 @@ const user = handleActions<UserState, any>(
 			...state,
 			user: null,
 			checkError: error,
+		}),
+		[LOGOUT]: state => ({
+			...state,
+			user: null,
 		}),
 	},
 	initialState,
