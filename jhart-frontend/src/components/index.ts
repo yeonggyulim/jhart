@@ -10,3 +10,5 @@ export { default as Button } from './common/Button';
 
 export { default as AuthForm } from './auth/AuthForm';
 export { default as AuthTemplate } from './auth/AuthTemplate';
+
+export { default as Editor } from './write/Editor';
