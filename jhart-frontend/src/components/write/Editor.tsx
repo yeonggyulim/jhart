@@ -10,7 +10,7 @@ const Editor = () => {
 	};
 
 	return (
-		<div className="eidtor-block">
+		<div className="editor-block">
 			<input className="title" placeholder="제목을 입력하세요" />
 			<div className="quill-wrapper">
 				<ReactQuill
