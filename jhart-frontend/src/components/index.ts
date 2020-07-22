@@ -12,3 +12,6 @@ export { default as AuthForm } from './auth/AuthForm';
 export { default as AuthTemplate } from './auth/AuthTemplate';
 
 export { default as Editor } from './write/Editor';
+export { default as WriteActionButtons } from './write/WriteActionButtons';
+
+export { default as PostWrite } from './post/PostWrite';

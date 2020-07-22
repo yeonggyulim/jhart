@@ -1,23 +1,27 @@
 .editor-block {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 
-    .title {
-        font-size: 3rem;
-        outline: none;
-        padding-bottom: 0.5rem;
-        border: none;
-        border-bottom: 1px solid $oc-gray-4;
-        margin-bottom: 2rem;
-        width: 100%;
-    }
+	.title {
+		font-size: 3rem;
+		outline: none;
+		padding-bottom: 0.5rem;
+		border: none;
+		border-bottom: 1px solid $oc-gray-4;
+		margin-bottom: 2rem;
+		width: 100%;
+	}
 
-    .quill-wrapper {
-        .quill {
-            padding: 0;
-            min-height: 320px;
-            font-size: 1.125rem;
-            line-height: 1.5;
-        }
-    }
+	.quill-wrapper {
+		.quill {
+			padding: 0;
+			min-height: 320px;
+			font-size: 1.125rem;
+			line-height: 1.5;
+
+			.ql-editor {
+				min-height: 320px;
+			}
+		}
+	}
 }
