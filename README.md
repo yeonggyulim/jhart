@@ -10,12 +10,13 @@
   - React.js
   - Typescript
   - Sass
-  - React Bootstrap (React UI Framework)
+  <!-- - React Bootstrap (React UI Framework) -->
   - Redux (Maniging State)
     - Saga
 
 - Backend
   - Node.js
+  - Typescript
   - Koa (Web Framework for Node.js)
   - MongoDB
     - Mongoose
