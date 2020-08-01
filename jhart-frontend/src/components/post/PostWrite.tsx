@@ -1,10 +1,11 @@
 import React from 'react';
-import { Editor, WriteActionButtons } from '..';
+import { WriteActionButtons } from '..';
+import { EditorContainer } from '../../containers';
 
 const PostWrite = () => {
 	return (
 		<>
-			<Editor />
+			<EditorContainer />
 			<WriteActionButtons onPublish={() => {}} onCancel={() => {}} />
 		</>
 	);

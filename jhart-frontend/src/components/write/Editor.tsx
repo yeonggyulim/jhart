@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-const Editor = () => {
-	const [editorHtml, setEditorHtml] = useState<string>('');
+type EditorProps = {
+	title: string;
+	body: string;
+	onChangeField: Function;
+};
 
-	const handleChange = (html: string) => {
-		setEditorHtml(html);
+const Editor = ({ title, body, onChangeField }: EditorProps) => {
+	const onChangeBody = (html: string) => {
+		onChangeField({ key: 'body', value: html });
+	};
+
+	const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+		onChangeField({ key: 'title', value: e.target.value });
 	};
 
 	return (
 		<div className="editor-block">
-			<input className="title" placeholder="제목을 입력하세요" />
+			<input
+				className="title"
+				placeholder="제목을 입력하세요"
+				value={title}
+				onChange={onChangeTitle}
+			/>
 			<div className="quill-wrapper">
 				<ReactQuill
 					theme={'snow'}
-					onChange={handleChange}
-					value={editorHtml}
+					onChange={onChangeBody}
+					value={body}
 					modules={Editor.modules}
 					formats={Editor.formats}
 					bounds={'.quill-wrapper'}
