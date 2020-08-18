@@ -6,6 +6,9 @@ import {
 	CareerPage,
 	MapPage,
 	ProcessingPage,
+	BuddhaStatuePage,
+	AntiquePage,
+	CharacterPage,
 	ModelingPage,
 	ContactPage,
 	BuddhismArtPage,
@@ -20,9 +23,9 @@ const App = () => {
 			<Route path="/information/career" component={CareerPage} />
 			<Route path="/information" exact={true} component={InformationPage} />
 			{/* TODO: change name to buddha-statue, antique, character */}
-			<Route path="/processing/probuddha" />
-			<Route path="/processing/probequest" />
-			<Route path="/processing/procha" />
+			<Route path="/processing/buddha-statue" component={BuddhaStatuePage} />
+			<Route path="/processing/antique" component={AntiquePage} />
+			<Route path="/processing/character" component={CharacterPage} />
 			<Route path="/processing" exact={true} component={ProcessingPage} />
 			<Route path="/modeling/art-exhibition" />
 			<Route path="/modeling/diorama" />

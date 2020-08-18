@@ -4,6 +4,9 @@ export { default as CareerPage } from './information/CareerPage';
 export { default as MapPage } from './information/MapPage';
 
 export { default as ProcessingPage } from './processing/ProcessingPage';
+export { default as BuddhaStatuePage } from './processing/BuddhaStatuePage';
+export { default as AntiquePage } from './processing/AntiquePage';
+export { default as CharacterPage } from './processing/CharacterPage';
 
 export { default as ModelingPage } from './modeling/ModelingPage';
 
