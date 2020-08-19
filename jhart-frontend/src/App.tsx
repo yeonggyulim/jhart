@@ -8,12 +8,20 @@ import {
 	ProcessingPage,
 	BuddhaStatuePage,
 	AntiquePage,
-	CharacterPage,
+	BuddhaCharacterPage,
 	ModelingPage,
 	ContactPage,
 	BuddhismArtPage,
 	LoginPage,
 	RegisterPage,
+	AntiqueReproductionPage,
+	ArtExhibitionPage,
+	CharacterPage,
+	CulturalAssetsPage,
+	DioramaPage,
+	ModelPage,
+	SculpturePage,
+	StatuePage,
 } from './pages';
 
 const App = () => {
@@ -25,16 +33,19 @@ const App = () => {
 			{/* TODO: change name to buddha-statue, antique, character */}
 			<Route path="/processing/buddha-statue" component={BuddhaStatuePage} />
 			<Route path="/processing/antique" component={AntiquePage} />
-			<Route path="/processing/character" component={CharacterPage} />
+			<Route path="/processing/character" component={BuddhaCharacterPage} />
 			<Route path="/processing" exact={true} component={ProcessingPage} />
-			<Route path="/modeling/art-exhibition" />
-			<Route path="/modeling/diorama" />
-			<Route path="/modeling/antique-reproduction" />
-			<Route path="/modeling/cultural-assets" />
-			<Route path="/modeling/statue" />
-			<Route path="/modeling/sculpture" />
-			<Route path="/modeling/character" />
-			<Route path="/modeling/model" />
+			<Route path="/modeling/art-exhibition" component={ArtExhibitionPage} />
+			<Route path="/modeling/diorama" component={DioramaPage} />
+			<Route
+				path="/modeling/antique-reproduction"
+				component={AntiqueReproductionPage}
+			/>
+			<Route path="/modeling/cultural-assets" component={CulturalAssetsPage} />
+			<Route path="/modeling/statue" component={StatuePage} />
+			<Route path="/modeling/sculpture" component={SculpturePage} />
+			<Route path="/modeling/character" component={CharacterPage} />
+			<Route path="/modeling/model" component={ModelPage} />
 			<Route path="/modeling" exact={true} component={ModelingPage} />
 			<Route path="/buddhism-art/buddha-statue" />
 			<Route path="/buddhism-art/buddhist-sculpture" />
