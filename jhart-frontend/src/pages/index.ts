@@ -18,8 +18,12 @@ export { default as ModelPage } from './modeling/ModelPage';
 export { default as SculpturePage } from './modeling/SculpturePage';
 export { default as StatuePage } from './modeling/StatuePage';
 
-
 export { default as BuddhismArtPage } from './buddhismArt/BuddhismArtPage';
+export { default as BuddhismStatuePage } from './buddhismArt/BuddhismStatuePage';
+export { default as BuddhistArchitecturePage } from './buddhismArt/BuddhistArchitecturePage';
+export { default as BuddhistGoodsPage } from './buddhismArt/BuddhistGoodsPage';
+export { default as BuddhistSculpturePage } from './buddhismArt/BuddhistSculpturePage';
+export { default as ThreedDataPage } from './buddhismArt/ThreedDataPage';
 
 export { default as ContactPage } from './ContactPage';
 

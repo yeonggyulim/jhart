@@ -46,7 +46,7 @@ const Navigation = ({ location }: RouteComponentProps) => {
 			{ title: '모형', link: '/modeling/model' },
 		],
 		'/buddhism-art': [
-			{ title: '대불 조성', link: '/buddhism-art/buddha-statue' },
+			{ title: '대불 조성', link: '/buddhism-art/buddhism-statue' },
 			{ title: '불교 조각', link: '/buddhism-art/buddhist-sculpture' },
 			{ title: '불교 건축', link: '/buddhism-art/buddhist-architecture' },
 			{ title: '불교 용품', link: '/buddhism-art/buddhist-goods' },

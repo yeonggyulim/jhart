@@ -12,6 +12,11 @@ import {
 	ModelingPage,
 	ContactPage,
 	BuddhismArtPage,
+	BuddhismStatuePage,
+	BuddhistArchitecturePage,
+	BuddhistGoodsPage,
+	BuddhistSculpturePage,
+	ThreedDataPage,
 	LoginPage,
 	RegisterPage,
 	AntiqueReproductionPage,
@@ -47,11 +52,23 @@ const App = () => {
 			<Route path="/modeling/character" component={CharacterPage} />
 			<Route path="/modeling/model" component={ModelPage} />
 			<Route path="/modeling" exact={true} component={ModelingPage} />
-			<Route path="/buddhism-art/buddha-statue" />
-			<Route path="/buddhism-art/buddhist-sculpture" />
-			<Route path="/buddhism-art/buddhist-architecture" />
-			<Route path="/buddhism-art/buddhist-goods" />
-			<Route path="/buddhism-art/3d-data" />
+			<Route
+				path="/buddhism-art/buddhism-statue"
+				component={BuddhismStatuePage}
+			/>
+			<Route
+				path="/buddhism-art/buddhist-sculpture"
+				component={BuddhistSculpturePage}
+			/>
+			<Route
+				path="/buddhism-art/buddhist-architecture"
+				component={BuddhistArchitecturePage}
+			/>
+			<Route
+				path="/buddhism-art/buddhist-goods"
+				component={BuddhistGoodsPage}
+			/>
+			<Route path="/buddhism-art/3d-data" component={ThreedDataPage} />
 			<Route path="/buddhism-art" exact={true} component={BuddhismArtPage} />
 			<Route path="/contact-us" component={ContactPage} />
 			<Route path="/login" component={LoginPage} />
