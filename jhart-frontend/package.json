@@ -10,7 +10,15 @@
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
     "typescript": "^4.0.3",
-    "webpack": "^4.44.2"
-  }
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "build": "npx webpack --config webpack.config.ts",
+    "start": "webpack-dev-server --config webpack.config.ts"
+  },
+  "type": "module"
 }

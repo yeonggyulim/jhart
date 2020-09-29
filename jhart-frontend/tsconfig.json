@@ -1,0 +1,17 @@
+{
+  "include": [
+    "./src/*"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es2015",
+      "es6",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}
