@@ -30,8 +30,8 @@
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts",
-    "start:dev": "nodemon --watch src/ src/index.ts"
+    "start": "npx nodemon --exec src/index.ts",
+    "start:dev": "npx nodemon --watch src/ src/index.ts"
   },
   "type": "module"
 }
