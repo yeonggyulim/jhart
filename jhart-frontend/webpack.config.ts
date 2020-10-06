@@ -29,7 +29,7 @@ const config: Configuration = {
 
   module: {
     rules: [{
-      test: /\.(js|ts)$/,
+      test: /\.(js|ts|jsx|tsx)$/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
