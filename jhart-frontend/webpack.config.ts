@@ -39,6 +39,7 @@ const config: Configuration = {
             '@babel/preset-typescript',
             '@babel/preset-react'
           ],
+          cacheDirectory: true
         }
       }
     }]
