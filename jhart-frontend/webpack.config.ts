@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
@@ -11,7 +12,7 @@ interface Configuration extends webpack.Configuration {
 
 const WDS_PORT = 8080;
 
-const mode = process.env.NODE_ENV as 'development' || 'production';
+const mode = process.env.NODE_ENV ? 'production' : 'development';
 
 const config: Configuration = {
   mode,
@@ -21,28 +22,47 @@ const config: Configuration = {
     filename: '[name]-bundle.js',
   },
 
-  devtool: 'inline-source-map',
+  devtool: mode === 'development' ? 'inline-source-map' : 'cheap-module-source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
   module: {
-    rules: [{
-      test: /\.(js|ts|jsx|tsx)$/,
-      exclude: /(node_modules)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-            '@babel/preset-typescript',
-            '@babel/preset-react'
-          ],
-          cacheDirectory: true
+    rules: [
+      {
+        test: /\.(js|ts|jsx|tsx)$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript',
+              '@babel/preset-react'
+            ],
+            cacheDirectory: true
+          }
         }
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules)/,
+        use: [
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
+            : {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: './',
+              }
+            },
+          'css-loader',
+          'sass-loader',
+        ]
       }
-    }]
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -50,6 +70,12 @@ const config: Configuration = {
       title: 'JHArt',
       template: './public/index.html',
       filename: './index.html',
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
 
