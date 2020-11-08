@@ -1,10 +1,12 @@
 import Router from 'koa-router';
+import categories from './categories';
 import posts from './posts';
 import careers from './careers';
 import auth from './auth';
 
 const api = new Router();
 
+api.use('/categories', categories.routes());
 api.use('/posts', posts.routes());
 api.use('/careers', careers.routes());
 api.use('/auth', auth.routes());
