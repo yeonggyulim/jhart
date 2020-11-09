@@ -55,8 +55,7 @@ PUT /api/categories
 */
 export const write = async (ctx: Context) => {
   const categoriesArr = ctx.request.body;
-  console.log(categoriesArr);
-  const req = [];
+  // const req = [];
 
   const subCategorySchema = Joi.object().keys({
     idx: Joi.number().required(),
@@ -75,31 +74,56 @@ export const write = async (ctx: Context) => {
     children: Joi.array().items(subCategorySchema),
   });
 
-  for (const categoriesItem of categoriesArr) {
-    const result = Joi.validate(categoriesItem, categorySchema);
-    if (result.error) {
-      ctx.status = 400; // Bad Request
-      ctx.body = result.error;
-      return;
-    }
+  const wrappingSchema = Joi.array().items(categorySchema);
 
-    const { idx, id, name_ko, name_en, name_ch, children } = categoriesItem;
-    const category = new Category({
-      idx,
-      id,
-      name_ko,
-      name_en,
-      name_ch,
-      children,
-    });
-    try {
-      await category.save();
-      req.push(category);
-    } catch (e) {
-      ctx.throw(500, e);
-    }
+  const result = Joi.validate(categoriesArr, wrappingSchema);
+  if (result.error) {
+    ctx.status = 400; // Bad Request
+    ctx.body = result.error;
+    return;
   }
-  ctx.body = req;
+
+  try {
+    console.log({ Category });
+    await Category.remove({});
+
+    const category = new Category({
+      categories: categoriesArr,
+    });
+
+    console.log({ category });
+
+    await category.save();
+    ctx.body = category;
+  } catch (e) {
+    ctx.throw(500, e);
+  }
+
+  // for (const categoriesItem of categoriesArr) {
+  //   const result = Joi.validate(categoriesItem, categorySchema);
+  //   if (result.error) {
+  //     ctx.status = 400; // Bad Request
+  //     ctx.body = result.error;
+  //     return;
+  //   }
+
+  //   const { idx, id, name_ko, name_en, name_ch, children } = categoriesItem;
+  //   const category = new Category({
+  //     idx,
+  //     id,
+  //     name_ko,
+  //     name_en,
+  //     name_ch,
+  //     children,
+  //   });
+  //   try {
+  //     await category.save();
+  //     req.push(category);
+  //   } catch (e) {
+  //     ctx.throw(500, e);
+  //   }
+  // }
+  // ctx.body = req;
 };
 
 /* 카테고리 조회

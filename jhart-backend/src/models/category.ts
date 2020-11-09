@@ -19,5 +19,9 @@ const CategorySchema = new Schema({
   children: [SubCategorySchema],
 });
 
-const Category = mongoose.model('Category', CategorySchema);
+const WrappingSchema = new Schema({
+  categories: [CategorySchema],
+});
+
+const Category = mongoose.model('Category', WrappingSchema);
 export default Category;
