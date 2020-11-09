@@ -1,4 +1,5 @@
 import { Context } from 'koa';
+import Joi from 'joi';
 import Category from '../../models/category';
 
 /*
@@ -57,7 +58,31 @@ export const write = async (ctx: Context) => {
   console.log(categoriesArr);
   const req = [];
 
+  const subCategorySchema = Joi.object().keys({
+    idx: Joi.number().required(),
+    id: Joi.string().required(),
+    name_ko: Joi.string().required(),
+    name_en: Joi.string().required(),
+    name_ch: Joi.string().required(),
+  });
+
+  const categorySchema = Joi.object().keys({
+    idx: Joi.number().required(),
+    id: Joi.string().required(),
+    name_ko: Joi.string().required(),
+    name_en: Joi.string().required(),
+    name_ch: Joi.string().required(),
+    children: Joi.array().items(subCategorySchema),
+  });
+
   for (const categoriesItem of categoriesArr) {
+    const result = Joi.validate(categoriesItem, categorySchema);
+    if (result.error) {
+      ctx.status = 400; // Bad Request
+      ctx.body = result.error;
+      return;
+    }
+
     const { idx, id, name_ko, name_en, name_ch, children } = categoriesItem;
     const category = new Category({
       idx,
