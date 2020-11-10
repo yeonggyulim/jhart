@@ -17,6 +17,7 @@ mongoose
   .connect(MONGO_URI as string, {
     useNewUrlParser: true,
     useFindAndModify: false,
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log('Connected to MongoDB');
@@ -39,9 +40,12 @@ app.use(jwtMiddleware);
 app.use(router.routes()).use(router.allowedMethods());
 
 // 정적 파일 제공(build 결과물 serve)
-const buildDirectory = path.resolve(__dirname, '../../jhart-frontend/public/dist');
+const buildDirectory = path.resolve(
+  __dirname,
+  '../../jhart-frontend/public/dist',
+);
 app.use(serve(buildDirectory));
-app.use(async ctx => {
+app.use(async (ctx) => {
   // Not Found 이고, 주소가 /api로 시작하지 않는 경우
   if (ctx.status === 404 && ctx.path.indexOf('/api') !== 0) {
     // index.html 내용을 반환

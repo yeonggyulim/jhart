@@ -55,7 +55,6 @@ PUT /api/categories
 */
 export const write = async (ctx: Context) => {
   const categoriesArr = ctx.request.body;
-  // const req = [];
 
   const subCategorySchema = Joi.object().keys({
     idx: Joi.number().required(),
@@ -83,47 +82,22 @@ export const write = async (ctx: Context) => {
     return;
   }
 
+  // 기존에 categories를 가지고 있으면 가지고 있는 것을 업데이트, 안가지고 있으면 instance를 만들어서 넣어줌
   try {
-    console.log({ Category });
-    await Category.remove({});
-
-    const category = new Category({
-      categories: categoriesArr,
-    });
-
-    console.log({ category });
+    const findOne = await Category.findOne().exec();
+    const category = findOne
+      ? findOne.set({
+          categories: categoriesArr,
+        })
+      : new Category({
+          categories: categoriesArr,
+        });
 
     await category.save();
-    ctx.body = category;
+    ctx.body = category.get('categories');
   } catch (e) {
     ctx.throw(500, e);
   }
-
-  // for (const categoriesItem of categoriesArr) {
-  //   const result = Joi.validate(categoriesItem, categorySchema);
-  //   if (result.error) {
-  //     ctx.status = 400; // Bad Request
-  //     ctx.body = result.error;
-  //     return;
-  //   }
-
-  //   const { idx, id, name_ko, name_en, name_ch, children } = categoriesItem;
-  //   const category = new Category({
-  //     idx,
-  //     id,
-  //     name_ko,
-  //     name_en,
-  //     name_ch,
-  //     children,
-  //   });
-  //   try {
-  //     await category.save();
-  //     req.push(category);
-  //   } catch (e) {
-  //     ctx.throw(500, e);
-  //   }
-  // }
-  // ctx.body = req;
 };
 
 /* 카테고리 조회
@@ -131,8 +105,8 @@ GET /api/categories
 */
 export const read = async (ctx: Context) => {
   try {
-    const categories = await Category.find().exec();
-    ctx.body = categories;
+    const categories = await Category.findOne().exec();
+    ctx.body = categories?.get('categories');
   } catch (e) {
     ctx.throw(500, e);
   }
