@@ -10,21 +10,21 @@ PUT /api/categories
         id: 'processing',
         name_ko: '조형 작업',
         name_en: 'Modeling',
-        name_ch: 'Modeling',
+        name_ch: '造型',
         children: [
             {
             idx: 1,
             id: 'sculpture',
             name_ko: '조형물',
             name_en: 'Sculpture',
-            name_ch: 'Sculpture',
+            name_ch: '雕塑',
             },
             {
             idx: 2,
             id: 'character',
             name_ko: '캐릭터',
             name_en: 'Character',
-            name_ch: 'Character',
+            name_ch: '字符',
             },
         ]
     },
@@ -33,21 +33,21 @@ PUT /api/categories
         id: 'processing',
         name_ko: '작업 공정',
         name_en: 'Processing',
-        name_ch: 'Processing',
+        name_ch: '處理中',
         children: [
             {
             idx: 1,
             id: 'antique',
             name_ko: '유지보수',
             name_en: 'Antique',
-            name_ch: 'Antique',
+            name_ch: '古董',
             },
             {
             idx: 2,
             id: 'character',
             name_ko: '캐릭터',
             name_en: 'Character',
-            name_ch: 'Character',
+            name_ch: '字符',
             },
         ]
     },
