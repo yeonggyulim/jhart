@@ -7,9 +7,7 @@ import {
 import { categoryApi, Category } from '../../apis/category';
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-export function* getCategorySaga(
-	action: ReturnType<typeof getCategoryListAsync.request>,
-) {
+export function* getCategorySaga() {
 	try {
 		const categories: Category[] = yield call(categoryApi.get);
 		yield put(getCategoryListAsync.success(categories));
