@@ -1,4 +1,4 @@
-# 田興工藝 Total Art Company Website
+# 전흥공예
 
 ## Table of contents
 
@@ -7,16 +7,18 @@
 ## Technical Stack
 
 - Frontend
+  - Webpack
+  - Babel
   - React.js
   - Typescript
   - Sass
   <!-- - React Bootstrap (React UI Framework) -->
-  - Redux (Maniging State)
-    - Saga
+  - Redux
+    - Redux Saga
 
 - Backend
   - Node.js
   - Typescript
-  - Koa (Web Framework for Node.js)
+  - Koa
   - MongoDB
     - Mongoose
