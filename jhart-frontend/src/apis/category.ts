@@ -1,9 +1,11 @@
 import axios from 'axios';
-const SERVER = 'http://localhost:4000';
-const CATEGORY_PREFIX = 'api/categories';
+const SERVER = document.location.origin;
+const API_PREFIX = 'api';
+const CATEGORY_PREFIX = 'categories';
 
 export const categoryApi = {
-	get: async () => await axios.get<Category[]>(`${SERVER}/${CATEGORY_PREFIX}`),
+	get: async () =>
+		await axios.get<Category[]>(`${SERVER}/${API_PREFIX}/${CATEGORY_PREFIX}`),
 	put: async (body: Category[]) =>
 		await axios.put(`${SERVER}/${CATEGORY_PREFIX}`, body),
 };

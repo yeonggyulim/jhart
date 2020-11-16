@@ -73,6 +73,9 @@ const config: Configuration = {
 	devServer: {
 		overlay: true,
 		port: WDS_PORT,
+		proxy: {
+			'/api': 'http://localhost:4000',
+		},
 	},
 };
 
