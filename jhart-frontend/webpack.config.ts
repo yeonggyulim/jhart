@@ -16,7 +16,7 @@ const mode = process.env.NODE_ENV ? 'production' : 'development';
 
 const config: Configuration = {
 	mode,
-	entry: './src/index.tsx',
+	entry: ['./polyfills.js', './src/index.tsx'],
 	output: {
 		path: path.resolve(__dirname, 'public/dist'),
 		filename: '[name]-bundle.js',
