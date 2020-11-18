@@ -47,6 +47,5 @@
 	"scripts": {
 		"start": "npx webpack-dev-server --config webpack.config.ts --open --hot",
 		"build": "cross-env NODE_ENV=production npx webpack --config webpack.config.ts"
-	},
-	"type": "module"
+	}
 }
