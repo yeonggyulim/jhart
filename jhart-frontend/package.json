@@ -1,7 +1,7 @@
 {
 	"name": "jhart-frontend",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "index.tsx",
 	"license": "MIT",
 	"dependencies": {
 		"axios": "^0.21.0",
@@ -45,7 +45,7 @@
 		"webpack-dev-server": "3.11.0"
 	},
 	"scripts": {
-		"start": "npx webpack-dev-server --config webpack.config.ts --open --hot",
+		"start": "npx webpack-dev-server --config webpack.config.ts",
 		"build": "cross-env NODE_ENV=production npx webpack --config webpack.config.ts"
 	}
 }
