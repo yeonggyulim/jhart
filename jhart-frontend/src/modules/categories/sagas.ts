@@ -9,7 +9,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 
 export function* getCategorySaga() {
 	try {
-		const categories: Category[] = yield call(categoryApi.get);
+		const { data: categories } = yield call(categoryApi.get);
 		yield put(getCategoryListAsync.success(categories));
 	} catch (e) {
 		yield put(getCategoryListAsync.failure(e));

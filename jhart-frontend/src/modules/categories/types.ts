@@ -5,9 +5,7 @@ import { Category } from '../../apis/category';
 export type CategoryAction = ActionType<typeof actions>;
 
 export type CategoryState = {
-	category: {
-		loading: boolean;
-		error: Error | null;
-		data: Category[] | null;
-	};
+	loading: boolean;
+	error: Error | null;
+	data: Category[] | null;
 };
