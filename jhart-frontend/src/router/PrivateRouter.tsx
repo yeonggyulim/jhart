@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-interface IPrivateRouterProps {}
+// interface IPrivateRouterProps {}
 
-const PrivateRouter: React.FunctionComponent<IPrivateRouterProps> = (props) => {
+const PrivateRouter: React.FunctionComponent = (props) => {
 	return <div></div>;
 };
 

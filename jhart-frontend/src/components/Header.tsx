@@ -1,7 +1,7 @@
-import * as React from 'react';
+// import * as React from 'react';
 
-export interface IHeaderProps {}
+// export interface IHeaderProps {}
 
-export function Header(props: IHeaderProps) {
-	return <div></div>;
-}
+// export function Header(props: IHeaderProps) {
+// 	return <div></div>;
+// }

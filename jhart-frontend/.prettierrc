@@ -1,5 +1,6 @@
 {
     "singleQuote": true,
+    "parser": "typescript",
     "semi": true,
     "useTabs": true,
     "tabWidth": 2,
