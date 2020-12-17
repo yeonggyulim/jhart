@@ -8,6 +8,9 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 import './sass/main.scss';
 import { getCategoryListAsync } from './modules/categories';
+import GlobalStyle from './styles/global-styles';
+import theme from './styles/theme';
+import { ThemeProvider } from './styles/themed-components';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -30,8 +33,13 @@ sagaMiddleware.run(rootSaga);
 const rootElement: HTMLElement = document.getElementById('app');
 
 render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+	<>
+		<GlobalStyle />
+		<ThemeProvider theme={theme}>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</ThemeProvider>
+	</>,
 	rootElement,
 );
