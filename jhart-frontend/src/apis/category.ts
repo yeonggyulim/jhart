@@ -4,9 +4,9 @@ const API_PREFIX = 'api';
 const CATEGORY_PREFIX = 'categories';
 
 export const categoryApi = {
-	get: async (): Promise<any> =>
+	get: async (): Promise<unknown> =>
 		await axios.get<Category[]>(`${SERVER}/${API_PREFIX}/${CATEGORY_PREFIX}`),
-	put: async (body: Category[]): Promise<any> =>
+	put: async (body: Category[]): Promise<unknown> =>
 		await axios.put(`${SERVER}/${CATEGORY_PREFIX}`, body),
 };
 
