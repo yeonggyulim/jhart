@@ -2,7 +2,6 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
@@ -36,23 +35,6 @@ const config: Configuration = {
 				exclude: /(node_modules)/,
 				use: 'babel-loader',
 			},
-			{
-				test: /\.scss$/,
-				exclude: /(node_modules)/,
-				use: [
-					// fallback to style-loader in development
-					process.env.NODE_ENV !== 'production'
-						? 'style-loader'
-						: {
-								loader: MiniCssExtractPlugin.loader,
-								options: {
-									publicPath: './',
-								},
-						  },
-					'css-loader',
-					'sass-loader',
-				],
-			},
 		],
 	},
 	plugins: [
@@ -61,12 +43,6 @@ const config: Configuration = {
 			title: 'JHArt',
 			template: './public/index.html',
 			filename: './index.html',
-		}),
-		new MiniCssExtractPlugin({
-			// Options similar to the same options in webpackOptions.output
-			// both options are optional
-			filename: '[name].css',
-			chunkFilename: '[id].css',
 		}),
 	],
 
