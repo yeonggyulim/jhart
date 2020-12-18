@@ -1,7 +1,14 @@
-// import * as React from 'react';
+import * as React from 'react';
+import styled from 'styled-components';
 
-// export interface IHeaderProps {}
+const HeaderBlock = styled.div`
+	color: red;
+`;
 
-// export function Header(props: IHeaderProps) {
-// 	return <div></div>;
-// }
+interface IHeaderProps {
+	children?: React.Component;
+}
+
+export const Header: React.FunctionComponent<IHeaderProps> = (props) => {
+	return <HeaderBlock>Header</HeaderBlock>;
+};
