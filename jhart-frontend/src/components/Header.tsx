@@ -24,9 +24,9 @@ const HeaderBlock = styled.div`
 `;
 
 interface IHeaderProps {
-	children?: React.Component;
+	children?: React.ReactNode;
 }
 
-export const Header: React.FunctionComponent<IHeaderProps> = (props) => {
+export const Header: React.FunctionComponent<IHeaderProps> = () => {
 	return <HeaderBlock>Header</HeaderBlock>;
 };
