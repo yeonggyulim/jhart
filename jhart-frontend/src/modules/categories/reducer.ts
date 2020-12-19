@@ -16,35 +16,35 @@ const initialState: CategoryState = {
 };
 
 const categories = createReducer<CategoryState, CategoryAction>(initialState, {
-	[GET_CATEGORY_LIST]: () => ({
+	[GET_CATEGORY_LIST]: (state) => ({
+		...state,
 		loading: true,
 		error: null,
-		data: null,
 	}),
 	[GET_CATEGORY_LIST_SUCCESS]: (state, action) => ({
+		...state,
 		loading: false,
-		error: null,
 		data: action.payload,
 	}),
 	[GET_CATEGORY_LIST_FAILURE]: (state, action) => ({
+		...state,
 		loading: false,
 		error: action.payload,
-		data: null,
 	}),
-	[PUT_CATEGORY_LIST]: () => ({
+	[PUT_CATEGORY_LIST]: (state) => ({
+		...state,
 		loading: true,
 		error: null,
-		data: null,
 	}),
 	[PUT_CATEGORY_LIST_SUCCESS]: (state, action) => ({
+		...state,
 		loading: false,
-		error: null,
 		data: action.payload,
 	}),
 	[PUT_CATEGORY_LIST_FAILURE]: (state, action) => ({
+		...state,
 		loading: false,
 		error: action.payload,
-		data: null,
 	}),
 });
 

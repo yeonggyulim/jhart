@@ -7,7 +7,11 @@ import {
 import { categoryApi, Category } from '../../apis/category';
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-export function* getCategorySaga() {
+export function* getCategorySaga(): Generator<
+	unknown,
+	void,
+	{ data: Category[] }
+> {
 	try {
 		const { data: categories } = yield call(categoryApi.get);
 		yield put(getCategoryListAsync.success(categories));
@@ -18,7 +22,7 @@ export function* getCategorySaga() {
 
 export function* putCategorySaga(
 	action: ReturnType<typeof putCategoryListAsync.request>,
-) {
+): Generator<unknown, void, Category[]> {
 	try {
 		const categories: Category[] = yield call(categoryApi.put, action.payload);
 		yield put(putCategoryListAsync.success(categories));
@@ -27,7 +31,7 @@ export function* putCategorySaga(
 	}
 }
 
-export function* categorySaga() {
+export function* categorySaga(): Generator {
 	yield takeEvery(GET_CATEGORY_LIST, getCategorySaga);
 	yield takeEvery(PUT_CATEGORY_LIST, putCategorySaga);
 }
