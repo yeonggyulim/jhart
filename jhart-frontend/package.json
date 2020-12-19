@@ -6,6 +6,7 @@
 	"dependencies": {
 		"axios": "^0.21.0",
 		"core-js": "3.6.5",
+		"open-color": "^1.7.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-redux": "^7.2.2",
