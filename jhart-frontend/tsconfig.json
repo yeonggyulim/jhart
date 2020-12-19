@@ -10,7 +10,7 @@
       "dom.iterable",
       "scripthost"
     ],
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
