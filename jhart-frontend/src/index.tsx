@@ -6,7 +6,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
-import './sass/main.scss';
 import { getCategoryListAsync } from './modules/categories';
 import GlobalStyle from './styles/global-styles';
 import theme from './styles/theme';
