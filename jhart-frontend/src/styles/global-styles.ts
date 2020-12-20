@@ -6,6 +6,9 @@ const GlobalStyles = createGlobalStyle`
     *{
         box-sizing:border-box;
     }
+    html, body, #app {
+        height: 100%;
+    }
     body{
         font-size:16px;
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;

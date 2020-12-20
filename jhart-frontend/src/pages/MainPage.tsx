@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Header } from '../components';
+import { Header, Footer } from '../components';
 import { Layout, MainLayout } from '../layouts';
 
 interface IMainPageProps {
@@ -11,6 +11,7 @@ export const MainPage: React.FunctionComponent<IMainPageProps> = () => {
 		<Layout>
 			<Header />
 			<MainLayout>Hello</MainLayout>
+			<Footer />
 		</Layout>
 	);
 };
