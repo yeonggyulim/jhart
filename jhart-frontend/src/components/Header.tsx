@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Responsive } from '../layouts';
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -7,7 +8,6 @@ const HeaderBlock = styled.div`
 	display: flex;
 	position: fixed;
 	align-items: center;
-	justify-content: center;
 	height: 60px;
 	width: 100%;
 	top: 0px;
@@ -28,5 +28,9 @@ interface IHeaderProps {
 }
 
 export const Header: React.FunctionComponent<IHeaderProps> = () => {
-	return <HeaderBlock>Header</HeaderBlock>;
+	return (
+		<HeaderBlock>
+			<Responsive center={true}>Header</Responsive>
+		</HeaderBlock>
+	);
 };

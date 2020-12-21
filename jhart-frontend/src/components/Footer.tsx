@@ -1,13 +1,12 @@
 import * as React from 'react';
+import { Responsive } from '../layouts';
 import styled from 'styled-components';
 import oc from 'open-color';
 
 const FooterBlock = styled.div`
 	/* 레이아웃 */
 	display: flex;
-	/* position: fixed; */
 	align-items: center;
-	justify-content: center;
 	height: 60px;
 	width: 100%;
 	top: 0px;
@@ -29,5 +28,9 @@ interface IFooterProps {
 }
 
 export const Footer: React.FunctionComponent<IFooterProps> = () => {
-	return <FooterBlock>Footer</FooterBlock>;
+	return (
+		<FooterBlock>
+			<Responsive center={true}>Footer</Responsive>
+		</FooterBlock>
+	);
 };
