@@ -49,7 +49,7 @@ app.use(async (ctx) => {
   // Not Found 이고, 주소가 /api로 시작하지 않는 경우
   if (ctx.status === 404 && ctx.path.indexOf('/api') !== 0) {
     // index.html 내용을 반환
-    await send(ctx, '.index.html', { root: buildDirectory });
+    await send(ctx, 'index.html', { root: buildDirectory });
   }
 });
 
