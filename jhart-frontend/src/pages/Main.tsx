@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Header, Footer } from '../components';
 import { Layout, MainLayout } from '../layouts';
 
-interface IMainPageProps {
+interface IMainProps {
 	children: React.ReactNode;
 }
 
-export const MainPage: React.FunctionComponent<IMainPageProps> = () => {
+export const Main: React.FunctionComponent<IMainProps> = () => {
+	console.log({ history });
 	return (
 		<Layout>
 			<Header />

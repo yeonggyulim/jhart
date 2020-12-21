@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { MainPage } from '../pages';
+import * as Pages from '../pages';
 
 const Router: React.FunctionComponent = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/" component={MainPage}></Route>
+				<Route exact path={'/'} component={Pages.Main} />
+				<Route component={Pages.NotFound} />
 			</Switch>
 		</BrowserRouter>
 	);
