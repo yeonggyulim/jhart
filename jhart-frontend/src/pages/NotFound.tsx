@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface INotFoundProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 export const NotFound: React.FunctionComponent<INotFoundProps> = () => {
