@@ -53,6 +53,8 @@ const config: Configuration = {
 		proxy: {
 			'/api': 'http://localhost:4000',
 		},
+		open: true,
+		hot: true,
 		historyApiFallback: true,
 	},
 };
