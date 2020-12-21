@@ -19,6 +19,7 @@ const config: Configuration = {
 	output: {
 		path: path.resolve(__dirname, 'public/dist'),
 		filename: '[name]-bundle.js',
+		// publicPath: '/',
 	},
 
 	devtool:
@@ -52,6 +53,7 @@ const config: Configuration = {
 		proxy: {
 			'/api': 'http://localhost:4000',
 		},
+		historyApiFallback: true,
 	},
 };
 
