@@ -15,21 +15,12 @@ const ResponsiveBlock = styled.div`
 
 	${({ theme }) => theme.media.desktop`        
         width: 990px;
-        ${() => `&::before{
-            content:"데스크톱"
-        }`};
     `}
 	${({ theme }) => theme.media.tablet`
         width: calc(100% - 2rem);
-        ${() => `&::before{
-            content:"태블릿"
-        }`}
     `}
     ${({ theme }) => theme.media.mobile`
         width: calc(100% - 1rem);
-        ${() => `&::before{
-            content:"모바일"
-        }`}
     `}
 `;
 
