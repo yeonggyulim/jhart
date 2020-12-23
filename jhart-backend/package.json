@@ -34,6 +34,5 @@
   "scripts": {
     "start": "npx nodemon --exec src/index.ts",
     "start:dev": "npx nodemon --watch src/ src/index.ts"
-  },
-  "type": "module"
+  }
 }
