@@ -1,7 +1,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Header, Footer } from '../components';
-import { Layout, Responsive } from './';
+import { Responsive } from './';
+
+const LayoutBlock = styled.div`
+	padding-top: 60px; /* 헤더 높이 */
+	height: 100vh;
+`;
 
 const MainLayoutBlock = styled.div`
 	margin: 2rem auto;
@@ -28,12 +33,12 @@ export const MainLayout: React.FunctionComponent<IMainLayoutProps> = ({
 	children,
 }) => {
 	return (
-		<Layout>
+		<LayoutBlock>
 			<Header />
 			<MainLayoutBlock>
 				<Responsive center={true}>{children}</Responsive>
 			</MainLayoutBlock>
 			<Footer />
-		</Layout>
+		</LayoutBlock>
 	);
 };
