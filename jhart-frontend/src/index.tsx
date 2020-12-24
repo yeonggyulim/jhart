@@ -10,6 +10,7 @@ import { getCategoryListAsync } from './modules/categories';
 import GlobalStyle from './styles/global-styles';
 import theme from './styles/theme';
 import { ThemeProvider } from './styles/themed-components';
+import 'antd/dist/antd.css';
 
 const sagaMiddleware = createSagaMiddleware();
 
