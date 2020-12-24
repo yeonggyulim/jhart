@@ -17,10 +17,10 @@ const ResponsiveBlock = styled.div`
         width: 990px;
     `}
 	${({ theme }) => theme.media.tablet`
-        width: calc(100% - 2rem);
+        width: calc(100vw - 2rem);
     `}
     ${({ theme }) => theme.media.mobile`
-        width: calc(100% - 1rem);
+        width: calc(100vw - 1rem);
     `}
 `;
 
