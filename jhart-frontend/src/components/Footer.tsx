@@ -8,7 +8,7 @@ const FooterBlock = styled.div`
 	display: flex;
 	align-items: center;
 	height: 60px;
-	width: 100vw;
+	width: 100%;
 	top: 0px;
 	z-index: 5;
 	margin-top: auto;
