@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import loadable from '@loadable/component';
+import { Spin } from 'antd';
 import * as Pages from '../pages';
 import * as Layouts from '../layouts';
+
+const LazyAdmin = loadable(() => import('../pages/Admin'));
 
 const Router: React.FunctionComponent = () => {
 	return (
@@ -9,7 +13,7 @@ const Router: React.FunctionComponent = () => {
 			<Switch>
 				<Route path="/admin">
 					<Layouts.SideLayout>
-						<Pages.NotFound />
+						<LazyAdmin fallback={<Spin tip="Loading..." />} />
 					</Layouts.SideLayout>
 				</Route>
 				<Layouts.MainLayout>
