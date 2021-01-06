@@ -6,7 +6,7 @@
 	"dependencies": {
 		"@loadable/component": "^5.14.1",
 		"antd": "^4.9.4",
-		"axios": "^0.21.0",
+		"axios": "^0.21.1",
 		"core-js": "3.6.5",
 		"open-color": "^1.7.0",
 		"react": "^16.13.1",
