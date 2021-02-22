@@ -27,9 +27,11 @@ export const Sidebar: React.FunctionComponent<ISidebarProps> = ({
 }) => {
 	return (
 		<Sider width="250">
-			<Header>
-				<HeaderBlock>전흥공예</HeaderBlock>
-			</Header>
+			<Link to="/">
+				<Header>
+					<HeaderBlock>전흥공예</HeaderBlock>
+				</Header>
+			</Link>
 			<Menu
 				theme="dark"
 				mode="inline"
